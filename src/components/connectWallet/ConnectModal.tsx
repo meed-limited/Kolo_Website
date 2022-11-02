@@ -3,12 +3,12 @@ import { Connector, useConnect } from "wagmi";
 
 import IMAGES from "./walletIcons";
 
-interface ConnectorModalProps {
+interface ConnectModalProps {
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ConnectorModal: React.FC<ConnectorModalProps> = ({ isModalOpen, setIsModalOpen }) => {
+const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen }) => {
   const { connect, connectors, isLoading, pendingConnector } = useConnect();
 
   const getConnectorImage = (connector: Connector) => {
@@ -68,4 +68,4 @@ const ConnectorModal: React.FC<ConnectorModalProps> = ({ isModalOpen, setIsModal
   );
 };
 
-export default ConnectorModal;
+export default ConnectModal;
