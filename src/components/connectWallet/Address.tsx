@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { Skeleton, Tooltip } from "antd";
+import { OverlayTrigger, Placeholder, Tooltip } from "react-bootstrap";
 
 import { AddressProps } from "../../../types";
 import { getEllipsisTxt } from "../../utils/formatters";
-
-const styles = {
-  address: {
-    height: "36px",
-    display: "flex",
-    gap: "5px",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    borderRadius: "9px",
-    alignItems: "center"
-  }
-};
 
 const Address: React.FC<AddressProps> = (props) => {
   const [address, setAddress] = useState<string>();
@@ -31,12 +20,12 @@ const Address: React.FC<AddressProps> = (props) => {
       }, 10000);
   }, [isClicked]);
 
-  if (address === undefined) return <Skeleton paragraph={{ rows: 1, width: "100%" }} title={false} active />;
+  if (address === undefined) return <Placeholder paragraph={{ rows: 1, width: "100%" }} title={false} active />;
 
   const Copy = () => (
-    <Tooltip title="Copy Address">
+    <OverlayTrigger key="top" placement="top" overlay={<Tooltip>Copy Address!</Tooltip>}>
       <img
-        src="/images/LogoAndIcons/copy.png"
+        src="assets/images/copy.png"
         alt="copy_button"
         style={{ cursor: "pointer" }}
         onClick={() => {
@@ -44,11 +33,11 @@ const Address: React.FC<AddressProps> = (props) => {
           setIsClicked(true);
         }}
       />
-    </Tooltip>
+    </OverlayTrigger>
   );
 
   return (
-    <div style={{ ...styles.address, ...props.style }}>
+    <div className="disconnect-wallet-card-address" style={{ ...props.style }}>
       <p style={{ paddingTop: "17px", paddingRight: "10px" }}>
         {props.size ? getEllipsisTxt(address, props.size) : address}
       </p>
@@ -59,22 +48,10 @@ const Address: React.FC<AddressProps> = (props) => {
 };
 
 export default Address;
-
 const Check = () => (
-  <Tooltip title="Copied!">
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      strokeWidth="3"
-      stroke="#21BF96"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M5 12l5 5l10 -10" />
-      <title id="copied-address">Copied!</title>
+  <OverlayTrigger key="top" placement="top" overlay={<Tooltip>Copied!</Tooltip>}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="green" viewBox="0 0 16 16">
+      <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
     </svg>
-  </Tooltip>
+  </OverlayTrigger>
 );

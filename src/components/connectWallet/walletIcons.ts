@@ -2,17 +2,17 @@ const IMAGES = [
   {
     id: 1,
     name: "MetaMask",
-    image: "images/connectors/metamask_Logo.svg"
+    image: "assets/images/connectors/metamask_Logo.svg"
   },
   {
     id: 2,
     name: "WalletConnect",
-    image: "images/connectors/walletconnect_Logo.svg"
+    image: "assets/images/connectors/walletconnect_Logo.svg"
   },
   {
     id: 3,
     name: "Coinbase Wallet",
-    image: "images/connectors/coinbase_Logo.png"
+    image: "assets/images/connectors/coinbase_Logo.png"
   }
 ];
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import { SelectOutlined, WalletOutlined } from "@ant-design/icons";
-import { Card, Modal } from "antd";
+import { Button, Card, Modal } from "react-bootstrap";
 import { useAccount, useDisconnect, useNetwork } from "wagmi";
 
 import { useWindowWidthAndHeight } from "../../hooks/useWindowWidthAndHeight";
@@ -16,18 +15,18 @@ const ConnectAccount = () => {
   const { chain } = useNetwork();
   const { disconnect } = useDisconnect();
   const { isMobile } = useWindowWidthAndHeight();
-  const [isConnectorsModalOpen, setIsConnectorsModalOpen] = useState<boolean>(false);
-  const [isConnectedModalOpen, setIsConnectedModalOpen] = useState<boolean>(false);
+  const [isConnectModalOpen, setIsConnectModalOpen] = useState<boolean>(false);
+  const [isDiconnectModalOpen, setIsDiconnectModalOpen] = useState<boolean>(false);
 
   const handleClick = () => {
-    if (isConnectorsModalOpen) setIsConnectorsModalOpen(false);
-    setIsConnectorsModalOpen(true);
+    if (isConnectModalOpen) setIsConnectModalOpen(false);
+    setIsConnectModalOpen(true);
   };
 
   const disconnectWallet = async () => {
     disconnect();
-    setIsConnectedModalOpen(false);
-    setIsConnectorsModalOpen(false);
+    setIsDiconnectModalOpen(false);
+    setIsConnectModalOpen(false);
     localStorage.removeItem("connectorId");
     window.location.reload();
   };
@@ -36,57 +35,82 @@ const ConnectAccount = () => {
     <>
       {!isConnected ? (
         <>
-          <button className="connect-account-button" onClick={handleClick}>
-            <WalletOutlined />
+          <Button onClick={handleClick}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ marginRight: "5px" }}
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z" />
+            </svg>
             Connect Wallet
-          </button>
-          <ConnectorModal isModalOpen={isConnectorsModalOpen} setIsModalOpen={setIsConnectorsModalOpen} />
+          </Button>
+          <ConnectorModal isModalOpen={isConnectModalOpen} setIsModalOpen={setIsConnectModalOpen} />
           <br />
         </>
       ) : (
         <>
-          <div className="connected-account" onClick={() => setIsConnectedModalOpen(true)}>
+          <Button onClick={() => setIsDiconnectModalOpen(true)}>
             {address && typeof address === "string" && (
               <p className="connected-account-text">
-                <WalletOutlined style={{ marginRight: "8px" }} />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ marginRight: "5px" }}
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z" />
+                </svg>
                 {isMobile ? getEllipsisTxt(address, 5) : getEllipsisTxt(address, 4)}
               </p>
             )}
-          </div>
+          </Button>
 
           <Modal
-            className="connectors-modal"
-            open={isConnectedModalOpen}
-            footer={null}
-            onCancel={() => setIsConnectedModalOpen(false)}
-            bodyStyle={{
-              width: "350px",
-              padding: "15px",
-              fontSize: "17px",
-              fontWeight: "500",
-              border: "1px solid black"
-            }}
-            style={{ display: "flex" }}
+            show={isDiconnectModalOpen}
+            dialogClassName="connect-modal-content"
+            onHide={() => setIsDiconnectModalOpen(false)}
           >
-            Account
-            <Card
-              style={{
-                marginTop: "10px",
-                borderRadius: "1rem"
-              }}
-              bodyStyle={{ padding: "15px" }}
-            >
-              <Address account={address as string} avatar="left" size={6} copyable style={{ fontSize: "20px" }} />
-              <div style={{ marginTop: "10px", padding: "0 10px" }}>
-                {chain !== undefined && (
-                  <a href={`${getExplorer(chain.id)}/address/${address}`} target="_blank" rel="noreferrer">
-                    <SelectOutlined style={{ marginRight: "5px" }} />
-                    View on Explorer
-                  </a>
-                )}
-              </div>
-            </Card>
-            <button onClick={() => disconnectWallet()}>Disconnect Wallet</button>
+            <Modal.Header closeButton>
+              <Modal.Title className="connect-modal-title">Account</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+              <Card className="disconnect-wallet-card">
+                <Address account={address as string} avatar="left" size={6} copyable style={{ fontSize: "20px" }} />
+                <div style={{ marginTop: "10px", padding: "0 10px" }}>
+                  {chain !== undefined && (
+                    <a href={`${getExplorer(chain.id)}/address/${address}`} target="_blank" rel="noreferrer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                        style={{ marginRight: "5px" }}
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
+                        />
+                      </svg>
+                      View on Explorer
+                    </a>
+                  )}
+                </div>
+              </Card>
+
+              <Button onClick={() => disconnectWallet()}>Disconnect Wallet</Button>
+            </Modal.Body>
           </Modal>
         </>
       )}

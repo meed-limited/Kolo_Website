@@ -1,4 +1,6 @@
 import React from "react";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { createRoot } from "react-dom/client";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
@@ -7,7 +9,6 @@ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { chains } from "./web3/network";

@@ -20,13 +20,13 @@ const ConnectorModal: React.FC<ConnectorModalProps> = ({ isModalOpen, setIsModal
   return (
     <Modal
       show={isModalOpen}
-      dialogClassName="connectors-modal-content"
+      dialogClassName="connect-modal-content"
       onHide={() => {
         setIsModalOpen(false);
       }}
     >
-      <Modal.Header closeButton closeVariant="white">
-        <Modal.Title className="connectors-modal-title">Connect Your Wallet</Modal.Title>
+      <Modal.Header closeButton>
+        <Modal.Title className="connect-modal-title">Connect Your Wallet</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -40,14 +40,14 @@ const ConnectorModal: React.FC<ConnectorModalProps> = ({ isModalOpen, setIsModal
                 connect({ connector });
               }}
             >
-              <span className="connect-button-text">{connector.name}</span>
+              <span className="connector-button-text">{connector.name}</span>
               {!connector.ready && " (unsupported)"}
               {isLoading && connector.id === pendingConnector?.id && " (connecting)"}
               <img src={getConnectorImage(connector)} width={32} height={32} alt={connector.name} />
             </button>
           ))}
 
-          <div className="connectors-modal-need-help">
+          <div className="connect-modal-need-help">
             Need help installing a wallet?{" "}
             <a
               href="https://metamask.zendesk.com/hc/en-us/articles/360015489471-How-to-Install-MetaMask-Manually"
@@ -58,7 +58,7 @@ const ConnectorModal: React.FC<ConnectorModalProps> = ({ isModalOpen, setIsModal
             </a>
           </div>
 
-          <div className="connectors-modal-disclaimer">
+          <div className="connect-modal-disclaimer">
             Wallets are provided by External Providers and by selecting you agree to Terms of those Providers. Your
             access to the wallet might be reliant on the External Provider being operational.
           </div>
