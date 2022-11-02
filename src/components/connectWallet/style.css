@@ -1,0 +1,136 @@
+/* Connector Modal Component:
+*******************************/
+.modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.connect-modal-content {
+  background-image: url(../../../public/assets/images/connectors_modal_BG.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+  margin: auto;
+  padding-bottom: 20px;
+  min-width: 330px;
+  max-width: 330px;
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  border-radius: 30px;
+  height: fit-content;
+  text-align: center;
+}
+
+.connect-modal-title {
+  padding-block: 10px;
+  padding-left: 15px;
+  font-family: Trinos, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.6px;
+}
+
+.connector-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-block: 5px;
+  padding-right: 25px;
+  margin-inline: 15px;
+  margin-bottom: 10px;
+  background: rgba(238, 238, 238, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 5px rgba(0, 0, 0, 0.25), inset 0px 0px 10px #ffffff;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.connector-button:hover {
+  background: rgba(238, 238, 238, 0.2);
+}
+
+.connector-button-text {
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 25px;
+  letter-spacing: 1px;
+}
+
+.connect-modal-need-help {
+  margin: auto;
+  font-size: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
+
+.connect-modal-disclaimer {
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Connect Account Component:
+******************************/
+
+.connected-account {
+  height: 40px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  max-width: 100%;
+  border-radius: 7px;
+  cursor: pointer;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), inset 0px 0px 5px #ffffff;
+  border-radius: 18px;
+}
+
+.connected-account:hover {
+  transform: scale(1.01);
+}
+
+.connected-account-text {
+  margin: 0 !important;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 27px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.connected-account-text:hover {
+  transform: scale(1.01);
+}
+
+/* Disconnect Modal:
+**********************/
+
+.disconnect-wallet-card {
+  display: flex;
+  padding: 10px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.disconnect-wallet-card-address {
+  height: 36px;
+  display: flex;
+  gap: 5px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  align-items: center;
+  justify-content: space-evenly;
+}
