@@ -1,0 +1,124 @@
+/* Connect Wallet buttons:
+****************************/
+
+.connect-account-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+  padding: 0 20px;
+}
+
+/* Connector Modal Component:
+*******************************/
+
+.connectors-modal-content {
+  background-image: url(../../../public/images/connectors_modal_BG.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+  margin: auto;
+  padding: 40px 15px 40px 15px;
+  min-width: 330px;
+  max-width: 330px;
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  border-radius: 30px;
+}
+
+.connectors-modal-title {
+  font-family: Trinos, sans-serif;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0.8px;
+}
+
+.connector-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-block: 5px;
+  padding-right: 25px;
+  margin-inline: 15px;
+  margin-bottom: 10px;
+  background: rgba(238, 238, 238, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 5px rgba(0, 0, 0, 0.25), inset 0px 0px 10px #ffffff;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.connector-button:hover {
+  background: rgba(238, 238, 238, 0.2);
+}
+
+.connect-button-text {
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 25px;
+  letter-spacing: 1px;
+}
+
+.connectors-modal-need-help {
+  margin: auto;
+  font-size: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
+
+.connectors-modal-disclaimer {
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Connect Account Component:
+******************************/
+
+.connected-account {
+  height: 40px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  max-width: 100%;
+  border-radius: 7px;
+  cursor: pointer;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), inset 0px 0px 5px #ffffff;
+  border-radius: 18px;
+}
+
+.connected-account:hover {
+  transform: scale(1.01);
+}
+
+.connected-account-text {
+  margin: 0 !important;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 27px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.connected-account-text:hover {
+  transform: scale(1.01);
+}
