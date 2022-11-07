@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Button, Card, Modal } from "react-bootstrap";
 import { useNetwork } from "wagmi";
 

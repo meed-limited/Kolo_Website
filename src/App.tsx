@@ -1,23 +1,31 @@
 import { Buffer } from "buffer";
 
+import React from "react";
+
 import { BrowserRouter as Router } from "react-router-dom";
 
-import ChainSelector from "./components/chain/ChainSelector";
-import ConnectAccount from "./components/connectWallet/ConnectAccount";
-import Sign_Test from "./components/Sign_Test";
+import "./App.css";
+// import ConnectWalletModal from "./components/connectWallet/ConnectWalletModal";
+// import ChainSelector from "./components/chain/ChainSelector";
+// import Sign_Test from "./components/Sign_Test";
+import useStateManager from "./hooks/useStateManager";
+import SubmissionModal from "./pages/components/SubmissionModal";
 import Routes from "./routes/routes";
-import "./app.css";
 
 function App() {
+  const globalState = useStateManager();
   if (!window.Buffer) window.Buffer = Buffer;
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Sign_Test />
-        <ChainSelector />
-        <ConnectAccount />
-      </header>
+      {/* <ConnectWalletModal
+        isModalOpen={globalState.openConnectModal.get()}
+        setIsModalOpen={globalState.openConnectModal.set}
+      /> */}
+      <SubmissionModal
+        isModalOpen={globalState.openSubmissionModal.get()}
+        setIsModalOpen={globalState.openSubmissionModal.set}
+      />
       <Router>
         <Routes />
       </Router>
