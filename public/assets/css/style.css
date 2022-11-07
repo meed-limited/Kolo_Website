@@ -250,6 +250,7 @@ footer .super-ultra img {
 
 .product-detail .content .header-wrapper {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
 }
 
 .product-detail .content .header-wrapper .header {
@@ -299,4 +300,94 @@ footer .super-ultra img {
   font-size: 20px;
   line-height: 20px;
   color: #ffffff;
+}
+
+.product-detail .content .project-body {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.product-detail .content .project-body img {
+  max-width: 426px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  margin-right: 40px;
+}
+
+.product-detail .content .project-body .detail-breakdown .organization {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 56px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.product-detail .content .project-body .detail-breakdown {
+  margin-bottom: 15px;
+}
+
+.product-detail .content .project-body .detail-breakdown .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product-detail .content .project-body .detail-breakdown .detail img {
+  max-width: 168px;
+}
+
+.product-detail .content .project-body .detail-breakdown .detail .breakdown .summary {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.product-detail .content .project-body .detail-breakdown .detail .breakdown .info {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.product-detail .content .project-body .detail-breakdown .detail .breakdown .learn-more {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: right;
+  color: #60f6ff;
+  cursor: pointer;
+}
+
+.product-detail .content .project-body .detail-breakdown .obj-backer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.product-detail .content .project-body .detail-breakdown .obj-backer .objective .key,
+.product-detail .content .project-body .detail-breakdown .obj-backer .backer .key {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: 16px;
 }
