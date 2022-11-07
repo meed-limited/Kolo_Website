@@ -9,12 +9,13 @@ export const BNB_PROVIDER = process.env.REACT_APP_NODE_BNB;
 export const BNB_TEST_PROVIDER = process.env.REACT_APP_NODE_BNB_TEST;
 
 // Contract Addresses in Production
-export const LPR_TOKEN = "0x91191A15E778d46255FC9AcD37D028228D97e786";
+export const TOKEN = "";
 export const DAO_CONTRACT = "";
 export const BALLOT_CONTRACT = "";
 
 // Contract Addresses in Development
-export const TOKEN_TEST = "0xE413Bfbc963fdB56Fe12A2501aa58cD4913553ef";
+// export const TOKEN_TEST = "0x53FAd67D1A9Be05D2D72d9F2b84D86Ff2CECEd98"; //KOL
+export const TOKEN_TEST = "0x13c63750396c04abC815Da624391095B179992AB";
 export const DAO_CONTRACT_TEST = "";
 export const BALLOT_CONTRACT_TEST = "0xf87bf9c061CdD62554b64cd766d9dB9fbd883F88";
 
@@ -29,6 +30,12 @@ export const getProvider = () => {
 
 export const getTokenAddress = () => {
   if (isProdEnv) {
-    return LPR_TOKEN;
+    return TOKEN;
   } else return TOKEN_TEST;
+};
+
+export const getBallotAddress = () => {
+  if (isProdEnv) {
+    return BALLOT_CONTRACT;
+  } else return BALLOT_CONTRACT_TEST;
 };
