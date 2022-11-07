@@ -1,0 +1,302 @@
+@font-face {
+  font-family: "trinos";
+  src: url("../fonts/trinos-trinos-solid-400.ttf");
+}
+body {
+  /* width: 10vw;
+    height: 100vh;  */
+  overflow-x: hidden;
+}
+
+.landing-bg {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(185.34deg, #4250af 4.92%, #8dafff 83.04%, #5ca7ff 99.68%);
+  padding: 0px 9px;
+  overflow-x: hidden;
+  background-image: url(../images/landing-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(185.34deg, #000b55 4.92%, #8dafff 83.04%, #5ca7ff 99.68%);
+  background-blend-mode: multiply;
+  background-image: url(../images/bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+}
+
+/* Header */
+
+header {
+  background: rgba(29, 21, 40, 0.09);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  height: 82px;
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  left: 1px;
+  top: 0px;
+}
+
+.icons-section span {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-left: 18.74px;
+  position: relative;
+  top: 4px;
+}
+
+.action-btns button {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: "trinos";
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  margin-bottom: 24px;
+  width: 100vw;
+  padding: 0px 40px;
+  position: sticky;
+  left: 1px;
+  bottom: 0px;
+}
+
+footer .super-ultra {
+  display: flex;
+  flex-direction: row;
+}
+
+footer .super-ultra span {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  color: #f7f8fb;
+  margin-right: 30px;
+  position: relative;
+  top: 11px;
+}
+
+footer .super-ultra img {
+  filter: drop-shadow(0px 4px 4px #000000);
+  backdrop-filter: blur(10px);
+  -webkit-filter: drop-shadow(0px 4px 4px #000000);
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.landing-footer .footer-icons a {
+  margin-right: 16px;
+  color: #f7f8fb;
+  font-size: 30px;
+}
+
+.landing-footer .footer-links a {
+  margin-left: 30px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  color: #f7f8fb;
+  text-decoration: none;
+  position: relative;
+  top: 11px;
+}
+
+.wrapper {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 0 20%;
+}
+
+/* Home */
+.home-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* width: 100vw; */
+}
+
+.landing {
+  margin-top: 40px;
+}
+
+.landing .title {
+  text-align: center;
+  font-size: 45px;
+  color: #f7f8fb;
+  font-weight: bold;
+  font-family: "Open Sans";
+  margin-bottom: 20px;
+}
+
+.landing .sub-title {
+  text-align: center;
+  font-size: 23px;
+  color: #f7f8fb;
+  /* font-weight: bold; */
+  font-family: "Open Sans";
+}
+
+/* Project Listing */
+.project-wrapper {
+  margin-top: 10px;
+}
+
+.project-wrapper .title-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+}
+
+.project-wrapper .title-section .title {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  color: #ffffff;
+}
+
+.project-wrapper .title-section .project-time {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 15px;
+}
+
+.project-wrapper .title-section .project-time .iconify {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.project-wrapper .title-section .project-time .countdown {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+/* Product Detail */
+.product-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-detail .goBack {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin-right: 35px;
+}
+
+.product-detail .content {
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 19px 39px;
+  width: 100%;
+}
+
+.product-detail .content .header-wrapper {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-detail .content .header-wrapper .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.product-detail .content .header-wrapper .header .title,
+.product-detail .content .header-wrapper .header .rank {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.product-detail .content .header-wrapper .header .note {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.product-detail .content .header-wrapper .header .expiryTimer {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-detail .content .header-wrapper .header .expiryTimer .iconify {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.product-detail .content .header-wrapper .header .expiryTimer .countdown {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+}

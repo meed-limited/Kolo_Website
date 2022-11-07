@@ -1,0 +1,387 @@
+.btn-secondary {
+  /*background-color: transparent !important;
+	*/ /*background: rgba(126, 126, 126, 0.05) !important;
+	*/ /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+	border-radius: 18px !important;
+	border: solid 3px  !important;
+	border-color: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa) !important;
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	*/
+  background-image: linear-gradient(to right, #ff48fa 0%, #78e4ff 3%, #78e4ff 97%, #ff48fa 100%);
+  border-radius: 18px !important;
+  box-sizing: border-box !important;
+  color: #ffffff !important;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 2;
+  -webkit-border-radius: 18px !important;
+  -moz-border-radius: 18px !important;
+  -ms-border-radius: 18px !important;
+  -o-border-radius: 18px !important;
+  padding: 3px !important;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+}
+
+.btn-secondary span {
+  align-items: center;
+  background: #4250af;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -ms-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+  padding: 6px;
+}
+
+.btn-secondary:hover span {
+  /* background: transparent; */
+}
+
+.btn-group {
+  background-image: linear-gradient(to right, #ff48fa 0%, #78e4ff 3%, #78e4ff 97%, #ff48fa 100%);
+  border-radius: 18px !important;
+  box-sizing: border-box !important;
+  color: #ffffff !important;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 2;
+  -webkit-border-radius: 18px !important;
+  -moz-border-radius: 18px !important;
+  -ms-border-radius: 18px !important;
+  -o-border-radius: 18px !important;
+  padding: 3px !important;
+  position: relative;
+  top: 10px;
+}
+
+.btn-group span {
+  align-items: center;
+  background: #000b55b4;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -ms-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+  padding: 6px;
+}
+
+.btn-group span .btn-link {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn-group span .btn-link.active {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #60f6ff 0%, rgba(96, 246, 255, 0) 100%);
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.btn-group span .iconify {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 28px;
+}
+
+.nav-btn {
+  position: relative;
+  top: 10px;
+}
+
+.btn-primary {
+  background-color: transparent !important;
+  border: none !important;
+  background-image: url(../images/btn-primary.svg);
+  background-position: center;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  padding: 10px 35px !important;
+}
+
+.btn-primary span {
+  font-family: "Trinos" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 15px !important;
+  color: #ffffff !important;
+  padding: 0px;
+}
+
+.list-box {
+  background: linear-gradient(253deg, rgba(215, 151, 188, 0.5) 0%, rgba(109, 109, 109, 0.05) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12.5px);
+  border-radius: 20px;
+  width: 100%;
+  padding: 13px 6px 33px 21px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.list-box .image-container img {
+  border-radius: 16px;
+}
+
+.list-box .content {
+  margin: 0px 24px;
+}
+
+.list-box .content .title {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.list-box .content .details {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: 23px;
+}
+
+.list-box .content .obj-backer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-box .content .obj-backer .key {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.list-box .content .obj-backer .value span {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.list-box .rank-container {
+  background: linear-gradient(180deg, rgba(96, 246, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 17px 13.5px;
+}
+
+.list-box .rank-container .rank {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 70px;
+}
+
+.list-box .rank-container .rank-icon {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 56px;
+  color: #60f6ff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 11.5px;
+}
+
+.box-wrapper {
+  margin-bottom: 15px;
+  width: 100%;
+  background: rgba(238, 238, 238, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 5px rgba(0, 0, 0, 0.25), inset 0px 0px 10px #ffffff;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 7.5px 7.5px 7.5px 35px;
+  cursor: pointer;
+}
+
+.box-wrapper .name {
+  padding: 7.5px 0px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff;
+}
+
+.box-wrapper img {
+  width: 35px;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.5) !important;
+  mix-blend-mode: normal !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.connect-modal .modal-header {
+  border-bottom: none !important;
+  padding: 30px;
+}
+
+.connect-modal .modal-header button {
+  color: #ffffff;
+  background-image: url(../images/x-icon.svg) !important;
+  z-index: 1000;
+}
+
+.connect-modal .modal-content {
+  overflow-y: hidden;
+  height: 569px;
+  width: 444px !important;
+  background-color: linear-gradient(180deg, rgba(255, 0, 181, 0.2) 0%, rgba(66, 80, 175, 0.2) 100%),
+    rgba(124, 124, 124, 0.8) !important;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5), inset 0px 4px 10px rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  background-image: url(../images/modal-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.connect-modal .modal-content .modal-wrapper {
+  overflow-y: hidden;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.connect-modal .modal-content .modal-wrapper .connect-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.connect-modal .modal-content .modal-wrapper .wallet-icon img {
+  max-width: 244px;
+  margin-bottom: 54px;
+}
+
+.connect-modal .modal-content .modal-wrapper .disclaimer {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 25px;
+}
+
+.connect-modal .modal-content .modal-wrapper .wallets {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.connect-modal .modal-content .modal-wrapper .wallets .title {
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 35px;
+}
+
+.connect-modal .modal-content .modal-wrapper .infos {
+  margin-top: 20px;
+}
+
+.connect-modal .modal-content .modal-wrapper .infos .help,
+.connect-modal .modal-content .modal-wrapper .infos .link {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.connect-modal .modal-content .modal-wrapper .infos .help {
+  color: #e8edf8;
+}
+
+.connect-modal .modal-content .modal-wrapper .infos .other-info {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #e8edf8;
+}
