@@ -2,13 +2,35 @@ import React from "react";
 
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useAccount, useProvider, useSigner } from "wagmi";
 
 import { useCountdown } from "../../hooks/useCountDown";
+import { getTokenBalance, signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
 const ProjectDetails = () => {
   const navigate = useNavigate();
+  const { address } = useAccount();
+  const { data: signer } = useSigner();
+  const provider = useProvider();
   const [days, hours, minutes, seconds] = useCountdown("Dec 5, 2022 15:37:25");
+
+  const backendcall = (data: unknown) => {
+    console.log(`send ${data}`);
+  };
+
+  const sign = async () => {
+    if (provider && signer) {
+      try {
+        const balance = await getTokenBalance(provider, address as string);
+        console.log("Balance: ", balance?.toString());
+        const data = await signApproval(signer, address as string, 10);
+        if (data.success) await backendcall(data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <Frame title="Project Detail">
@@ -65,7 +87,9 @@ const ProjectDetails = () => {
                       <img src="assets/images/users.svg" /> <span>00000000</span>
                     </div>
                     <div className="action-btn">
-                      <Button variant="success">Vote Now</Button>
+                      <Button variant="success" onClick={sign}>
+                        Vote Now
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -75,9 +99,21 @@ const ProjectDetails = () => {
           <div className="info-section">
             <div className="title">Information</div>
             <div className="info-body">
-              <p>We based Gachapon on the vending machines popular in Japan and other Asian countries that dispense capsules with toys or other goodies. The name Gachapon (also known as Gashapon) comes from the sounds of turning the crank handle (Gacha) and the capsule landing in the tray (pon).</p>
-              <p>There have already been many digital versions of Gachapon delivered through mobile apps and in many types of video games. Now we have our own, and this one dispenses NFTs. Lots and lots of NFTs.</p>
-              <p> Season One Gachapon NFTs all contain a Chilli Bottle NFT. There are ten thousand of these of varying rarity. These NFTs will play a significant role in expanding the Super Ultra arcade. Just hold on to them for now</p>
+              <p>
+                We based Gachapon on the vending machines popular in Japan and other Asian countries that dispense
+                capsules with toys or other goodies. The name Gachapon (also known as Gashapon) comes from the sounds of
+                turning the crank handle (Gacha) and the capsule landing in the tray (pon).
+              </p>
+              <p>
+                There have already been many digital versions of Gachapon delivered through mobile apps and in many
+                types of video games. Now we have our own, and this one dispenses NFTs. Lots and lots of NFTs.
+              </p>
+              <p>
+                {" "}
+                Season One Gachapon NFTs all contain a Chilli Bottle NFT. There are ten thousand of these of varying
+                rarity. These NFTs will play a significant role in expanding the Super Ultra arcade. Just hold on to
+                them for now
+              </p>
             </div>
           </div>
           <div className="social-section">

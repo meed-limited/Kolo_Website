@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import ChainSelector from "../../components/chain/ChainSelector";
 import ConnectAccount from "../../components/connectWallet/ConnectAccount";
-import Sign_Test from "../../components/Sign_Test";
 import useStateManager from "../../hooks/useStateManager";
 
 interface HeaderProps {
@@ -69,8 +68,8 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
                 Project
               </Button>
               <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className={location.pathname === "/submission-form" ? "active" : ""}
                 onClick={goToSubmissionForm}
               >
@@ -82,7 +81,6 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
       )}
       {!isLanding && (
         <div className="nav-btn">
-          <Sign_Test />
           <ChainSelector />
           <ConnectAccount />
           {/* <Button onClick={openConnectWallet}>
