@@ -34,7 +34,7 @@ const ProjectDetails = () => {
           </div>
           <div className="project-body-wrapper">
             <div className="project-body">
-              <img src="assets/images/project-detail.png" />
+              <img className="image" src="assets/images/project-detail.png" />
               <div className="detail-breakdown">
                 <div className="organization">Organization</div>
                 <div className="detail">
@@ -54,22 +54,52 @@ const ProjectDetails = () => {
                     <div className="value">
                       <img src="assets/images/USDC.svg" /> <span>00000000</span>
                     </div>
-                    <Button variant="danger">Contribute</Button>
+                    <div className="action-btn">
+                      <Button variant="danger">Contribute</Button>
+                    </div>
                   </div>
-                  <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
+                  {/* <span className="iconify" data-icon="fluent:divider-short-20-regular"></span> */}
                   <div className="backer">
                     <div className="key">Number of Backers: : </div>
                     <div className="value">
                       <img src="assets/images/users.svg" /> <span>00000000</span>
                     </div>
-                    <Button variant="success">Vote Now</Button>
+                    <div className="action-btn">
+                      <Button variant="success">Vote Now</Button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div></div>
-          <div></div>
+          <div className="info-section">
+            <div className="title">Information</div>
+            <div className="info-body">
+              <p>We based Gachapon on the vending machines popular in Japan and other Asian countries that dispense capsules with toys or other goodies. The name Gachapon (also known as Gashapon) comes from the sounds of turning the crank handle (Gacha) and the capsule landing in the tray (pon).</p>
+              <p>There have already been many digital versions of Gachapon delivered through mobile apps and in many types of video games. Now we have our own, and this one dispenses NFTs. Lots and lots of NFTs.</p>
+              <p> Season One Gachapon NFTs all contain a Chilli Bottle NFT. There are ten thousand of these of varying rarity. These NFTs will play a significant role in expanding the Super Ultra arcade. Just hold on to them for now</p>
+            </div>
+          </div>
+          <div className="social-section">
+            <div className="title">Share to social media</div>
+            <div className="social-icons">
+              <a href="#">
+                <img src="assets/images/fb.png" />
+              </a>
+              <a href="#">
+                <img src="assets/images/ig.png" />
+              </a>
+              <a href="#">
+                <img src="assets/images/tg.png" />
+              </a>
+              <a href="#">
+                <img src="assets/images/tw.png" />
+              </a>
+              <a href="#">
+                <img src="assets/images/discord.png" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </Frame>
