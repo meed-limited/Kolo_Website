@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Scrollbars } from "react-custom-scrollbars-2";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 
 import Footer from "./Footer";
 import Header from "./Header";
