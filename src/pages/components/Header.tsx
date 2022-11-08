@@ -3,6 +3,7 @@ import React from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import ChainSelector from "../../components/chain/ChainSelector";
 import ConnectAccount from "../../components/connectWallet/ConnectAccount";
 import useStateManager from "../../hooks/useStateManager";
 
@@ -35,8 +36,13 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   return (
     <header>
       <div className="icons-section">
-        <img src="assets/images/logo.svg" alt="kolo-logo" />
-        <img src="assets/images/kolo.svg" alt="kolo" />
+        {isLanding ? (
+          <Logo />
+        ) : (
+          <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+            <Logo />
+          </div>
+        )}
         {isLanding && <span>Start redistribute game revenue to various projects from KOLO</span>}
       </div>
       {isLanding && (
@@ -62,8 +68,8 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
                 Project
               </Button>
               <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className={location.pathname === "/submission-form" ? "active" : ""}
                 onClick={goToSubmissionForm}
               >
@@ -75,6 +81,7 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
       )}
       {!isLanding && (
         <div className="nav-btn">
+          <ChainSelector />
           <ConnectAccount />
           {/* <Button onClick={openConnectWallet}>
             <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
@@ -82,6 +89,15 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
         </div>
       )}
     </header>
+  );
+};
+
+export const Logo = () => {
+  return (
+    <>
+      <img src="assets/images/logo.svg" alt="kolo-logo" />
+      <img src="assets/images/kolo.svg" alt="kolo" />
+    </>
   );
 };
 

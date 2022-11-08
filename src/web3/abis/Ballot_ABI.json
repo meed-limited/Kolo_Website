@@ -1,26 +1,24 @@
 [
   {
-    "inputs": [{ "internalType": "contract IERC20", "name": "_daoToken", "type": "address" }],
+    "inputs": [{ "internalType": "address", "name": "erc20Token", "type": "address" }],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": false, "internalType": "uint256", "name": "id", "type": "uint256" },
-      { "indexed": false, "internalType": "string", "name": "title", "type": "string" },
-      { "indexed": false, "internalType": "string", "name": "description", "type": "string" },
-      { "indexed": false, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "projectId", "type": "uint256" },
+      { "indexed": false, "internalType": "bytes32", "name": "title", "type": "bytes32" },
       { "indexed": false, "internalType": "address", "name": "owner", "type": "address" }
     ],
-    "name": "NewProposal",
+    "name": "NewProjectSubmitted",
     "type": "event"
   },
   {
     "anonymous": false,
     "inputs": [
       { "indexed": false, "internalType": "address", "name": "voter", "type": "address" },
-      { "indexed": false, "internalType": "uint256", "name": "proposalId", "type": "uint256" }
+      { "indexed": false, "internalType": "uint256", "name": "projectId", "type": "uint256" }
     ],
     "name": "VoteSubmitted",
     "type": "event"
@@ -32,14 +30,6 @@
     "stateMutability": "view",
     "type": "function"
   },
-  { "inputs": [], "name": "closePoll", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-  {
-    "inputs": [],
-    "name": "closeProposalsSubmissionForNextPoll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
   {
     "inputs": [],
     "name": "currentPollId",
@@ -49,7 +39,7 @@
   },
   {
     "inputs": [],
-    "name": "currentProposalId",
+    "name": "currentProjectId",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
@@ -57,14 +47,14 @@
   {
     "inputs": [],
     "name": "daoToken",
-    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20Permit", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
       { "internalType": "uint256", "name": "pollId", "type": "uint256" },
-      { "internalType": "uint256", "name": "proposalId", "type": "uint256" }
+      { "internalType": "uint256", "name": "projectId", "type": "uint256" }
     ],
     "name": "declarePollWinner",
     "outputs": [],
@@ -72,17 +62,11 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "pollId", "type": "uint256" },
-      { "internalType": "uint256", "name": "proposalId", "type": "uint256" }
-    ],
-    "name": "getPollProposal",
+    "inputs": [{ "internalType": "uint256", "name": "pollId", "type": "uint256" }],
+    "name": "getPollResult",
     "outputs": [
-      { "internalType": "string", "name": "", "type": "string" },
-      { "internalType": "string", "name": "", "type": "string" },
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "address", "name": "", "type": "address" }
+      { "internalType": "uint256[]", "name": "", "type": "uint256[]" },
+      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -91,32 +75,22 @@
     "inputs": [{ "internalType": "uint256", "name": "pollId", "type": "uint256" }],
     "name": "getPollWinner",
     "outputs": [
-      { "internalType": "string", "name": "", "type": "string" },
-      { "internalType": "string", "name": "", "type": "string" },
       { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "address", "name": "", "type": "address" }
+      { "internalType": "bytes32", "name": "", "type": "bytes32" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [{ "internalType": "uint256", "name": "pollId", "type": "uint256" }],
-    "name": "getProposals",
-    "outputs": [
-      { "internalType": "uint256[]", "name": "", "type": "uint256[]" },
-      { "internalType": "string[]", "name": "titles", "type": "string[]" },
-      { "internalType": "string[]", "name": "descriptions", "type": "string[]" },
-      { "internalType": "uint256[]", "name": "votes", "type": "uint256[]" },
-      { "internalType": "address[]", "name": "accounts", "type": "address[]" },
-      { "internalType": "address[]", "name": "owners", "type": "address[]" }
-    ],
+    "name": "getProjects",
+    "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "isAcceptingProposals",
+    "name": "isAcceptingProjects",
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
@@ -128,62 +102,21 @@
     "stateMutability": "view",
     "type": "function"
   },
+  { "inputs": [], "name": "retrieveVotedTokens", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  { "inputs": [], "name": "setPollStatus", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  { "inputs": [], "name": "setProjectStatus", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
   {
-    "inputs": [],
-    "name": "openProposalsSubmissionForNextPoll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
-    ],
-    "name": "pollHistory",
-    "outputs": [
-      { "internalType": "string", "name": "title", "type": "string" },
-      { "internalType": "string", "name": "description", "type": "string" },
-      { "internalType": "uint256", "name": "voteCount", "type": "uint256" },
-      { "internalType": "address", "name": "account", "type": "address" },
-      { "internalType": "address", "name": "owner", "type": "address" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "pollWinner",
+    "inputs": [{ "internalType": "bytes32", "name": "title", "type": "bytes32" }],
+    "name": "submitProject",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  { "inputs": [], "name": "startPoll", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-  {
-    "inputs": [
-      { "internalType": "string", "name": "title", "type": "string" },
-      { "internalType": "string", "name": "description", "type": "string" },
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
-    "name": "submitProposal",
-    "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
-    ],
-    "name": "tracker",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
       { "internalType": "address", "name": "sender", "type": "address" },
-      { "internalType": "uint256", "name": "proposaId", "type": "uint256" }
+      { "internalType": "uint256", "name": "projectId", "type": "uint256" },
+      { "internalType": "uint256", "name": "amountOfVotes", "type": "uint256" }
     ],
     "name": "vote",
     "outputs": [],
@@ -191,16 +124,12 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+    "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }],
     "name": "voteWeight",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "name": "votersWeightUsed",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      { "internalType": "uint256", "name": "balance", "type": "uint256" },
+      { "internalType": "uint256", "name": "allowance", "type": "uint256" }
+    ],
     "stateMutability": "view",
     "type": "function"
   }
