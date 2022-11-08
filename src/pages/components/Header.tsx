@@ -26,9 +26,9 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   //   globalState.openConnectModal.set(true);
   // };
 
-  const openSubmissonModal = () => {
+  const goToSubmissionForm = () => {
     if (globalState.isAuth.get()) {
-      globalState.openSubmissionModal.set(true);
+      navigate("/submission-form");
     } else {
       globalState.openConnectModal.set(true);
     }
@@ -69,8 +69,12 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
                 Project
               </Button>
               <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
-              <Button variant="link" onClick={openSubmissonModal}>
-                Submission
+              <Button 
+                variant="link" 
+                className={location.pathname === "/submission-form" ? "active" : ""}
+                onClick={goToSubmissionForm}
+              >
+                Submit Project
               </Button>
             </span>
           </ButtonGroup>
