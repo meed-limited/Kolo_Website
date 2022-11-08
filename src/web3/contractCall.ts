@@ -1,3 +1,4 @@
+import { Provider, Signer } from "@wagmi/core";
 import { signERC2612Permit } from "eth-permit";
 import { ethers } from "ethers";
 
@@ -26,10 +27,7 @@ export const getTokenName = async (
 
 /* Get the balance of a specific user address :
  ***********************************************/
-export const getTokenBalance = async (
-  provider: ethers.providers.Web3Provider | undefined,
-  address: string
-): Promise<string | undefined> => {
+export const getTokenBalance = async (provider: any, address: string): Promise<string | undefined> => {
   const tokenInstance = new ethers.Contract(token, Token_ABI, provider);
 
   try {
@@ -109,7 +107,7 @@ export const isPollOpened = async (
 /* Check if the poll is currently opened :
  *******************************************/
 export const submitProposal = async (
-  provider: ethers.providers.Web3Provider | undefined,
+  provider: Signer | Provider | undefined,
   title: string,
   description: string,
   account: string
@@ -127,106 +125,60 @@ export const submitProposal = async (
 
 /* Sign an approval from user :
  *******************************/
-// export const signApproval = async (
-//   provider: ethers.providers.Web3Provider | undefined,
-//   address: string,
-//   amount: number,
-//   chainId: number
-// ): Promise<string | undefined> => {
-//   const tokenInstance = new ethers.Contract(token, Token_ABI, provider);
-//   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
-
-//   const name = await tokenInstance.name();
-//   const signer = provider?.getSigner(address);
-
-//   // Create the approval request
-//   const amoutToBN = ethers.utils.parseUnits(amount.toString(), 18);
-//   const approve = {
-//     owner: address,
-//     spender: ballotInstance.address,
-//     value: amoutToBN
-//   };
-
-//   const deadline = 100000000000000;
-//   const nonce = await tokenInstance.nonces(address);
-//   const digest = getPermitDigest(name, tokenInstance.address, chainId, approve, nonce, deadline);
-
-//   const { v, r, s } = sign(digest, signer);
-
-//   try {
-//     const receipt = await tokenInstance.permit(approve.owner, approve.spender, approve.value, deadline, v, r, s);
-
-//     // To make sure:
-//     const allowance = await tokenInstance.allowance(address, tokenInstance.address);
-//     console.log(allowance);
-//     return receipt;
-//   } catch (error) {
-//     console.log(error);
-//     return undefined;
-//   }
-// };
 
 export const signApproval = async (
-  provider: ethers.providers.Web3Provider | undefined,
+  provider: Signer | Provider | undefined,
   address: string,
   amount: number
-): Promise<string | undefined> => {
+): Promise<{
+  success: boolean;
+  data: unknown;
+}> => {
   const tokenInstance = new ethers.Contract(token, Token_ABI, provider);
   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
 
-  //const amoutToBN = ethers.utils.parseUnits(amount.toString(), 18);
+  const amoutToBN = ethers.utils.parseUnits(amount.toString(), 18);
   const deadline = 100000000000000;
   const nonce = await tokenInstance.nonces(address);
-  const allowanceAmount = amount * 10 ** 18;
-
-  // const name = await tokenInstance.name();
-  const signer = provider?.getSigner(address);
-
-  // Create the approval request
-  // const approve = {
-  //   owner: address,
-  //   spender: ballotInstance.address,
-  //   value: amoutToBN
-  // };
-
-  // const digest = getPermitDigest(name, tokenInstance.address, chainId, approve, nonce, deadline);
-
-  // const { v, r, s } = sign(digest, signer);
-
-  const result = await signERC2612Permit(
-    // window.ethereum,
-    signer,
-    tokenInstance.address,
-    address,
-    ballotInstance.address,
-    allowanceAmount,
-    deadline,
-    nonce
-  );
-
-  // const txParams = {
-  //   nonce: nonce,
-  //   gasLimit: 80000,
-  //   to: tokenInstance.address,
-  //   data: tokenInstance
-  //     .permit(address, ballotInstance.address, amoutToBN, result.deadline, result.v, result.r, result.s)
-  //     .encodeABI()
-  // };
 
   try {
-    // const receipt = await tokenInstance.permit(approve.owner, approve.spender, approve.value, deadline, v, r, s);
-    const receipt = await tokenInstance
-      .permit(address, ballotInstance.address, allowanceAmount, result.deadline, result.v, result.r, result.s)
-      .send({
-        from: address
-      });
-
-    // To make sure:
-    const allowance = await tokenInstance.allowance(address, tokenInstance.address);
-    console.log(allowance);
-    return receipt;
+    const result = await signERC2612Permit(
+      provider,
+      tokenInstance.address,
+      address,
+      ballotInstance.address,
+      amoutToBN.toString(),
+      deadline,
+      parseInt(nonce)
+    );
+    console.log("Result: ", result);
+    return { success: true, data: result };
   } catch (error) {
-    console.log(error);
-    return undefined;
+    console.log("Error: ", error);
+    return { success: false, data: error };
   }
 };
+
+// try {
+//   const tx = await tokenInstance.permit(
+//     address,
+//     ballotInstance.address,
+//     amoutToBN,
+//     result.deadline,
+//     result.v,
+//     result.r,
+//     result.s
+//   );
+
+//   const receipt = await tx.wait();
+//   console.log("Receipt: ", receipt);
+
+//   // Check allowance:
+//   const allowance = await tokenInstance.allowance(address, ballotInstance.address);
+//   console.log("Allowance:", parseInt(allowance));
+
+//   return receipt;
+// } catch (error) {
+//   console.log(error);
+//   return undefined;
+// }

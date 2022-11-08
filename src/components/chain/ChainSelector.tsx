@@ -3,7 +3,7 @@ import { useAccount, useNetwork, useSwitchNetwork } from "wagmi";
 
 import { menuItems } from "./chains";
 
-function ChainSelector() {
+const ChainSelector = () => {
   const { isConnected } = useAccount();
   const { chain } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
@@ -44,6 +44,6 @@ function ChainSelector() {
       )}
     </>
   );
-}
+};
 
 export default ChainSelector;
