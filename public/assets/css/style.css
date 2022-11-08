@@ -543,7 +543,8 @@ footer .super-ultra img {
   -o-border-radius: 16px;
 }
 
-.product-detail .content .submission-form form input::placeholder{
+.product-detail .content .submission-form form input::placeholder,
+.product-detail .content .submission-form form textarea::placeholder{
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;

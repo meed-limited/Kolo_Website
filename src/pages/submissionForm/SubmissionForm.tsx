@@ -85,7 +85,7 @@ const SubmissionForm = () => {
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3" >
-                                    <Form.Label>Project Name</Form.Label>
+                                    <Form.Label>Project FullName</Form.Label>
                                     <Form.Control 
                                         type="email" 
                                         placeholder="Project Name" 
