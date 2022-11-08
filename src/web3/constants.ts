@@ -17,7 +17,7 @@ export const BALLOT_CONTRACT = "";
 // export const TOKEN_TEST = "0x53FAd67D1A9Be05D2D72d9F2b84D86Ff2CECEd98"; //KOL
 export const TOKEN_TEST = "0xB77Cdf9B2E1547c3b9b47744b490Fa4C1Dee7b63";
 export const DAO_CONTRACT_TEST = "";
-export const BALLOT_CONTRACT_TEST = "0xf87bf9c061CdD62554b64cd766d9dB9fbd883F88";
+export const BALLOT_CONTRACT_TEST = "0x9fC060dAc748D2B3D44ED3D1354A0d68F9040120";
 
 /* Getter functions:
  *********************/

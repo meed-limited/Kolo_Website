@@ -108,14 +108,13 @@ export const isPollOpened = async (
  *******************************************/
 export const submitProposal = async (
   provider: Signer | Provider | undefined,
-  title: string,
-  description: string,
-  account: string
+  title: string
 ): Promise<string | undefined> => {
   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
 
   try {
-    const receipt = await ballotInstance.submitProposal(title, description, account);
+    const tx = await ballotInstance.submitProject(title);
+    const receipt = await tx.wait();
     return receipt;
   } catch (error) {
     console.log(error);
