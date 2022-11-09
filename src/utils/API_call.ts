@@ -24,7 +24,7 @@ export const submitProjectAPI = async (params: any): Promise<any> => {
   return body;
 };
 
-export const getAuthToken = async (address: string): Promise<any> => {
+export const getAuthToken = async (address: string, objectId: string): Promise<any> => {
   try {
     const response = await fetch("https://kolo-bpnvacqhoq-uc.a.run.app/api/v1/kolohack/users/auth", {
       method: "POST",
@@ -33,7 +33,7 @@ export const getAuthToken = async (address: string): Promise<any> => {
       },
       body: JSON.stringify({
         WalletAddress: address,
-        ObjectId: "plop"
+        ObjectId: objectId
       })
     });
     const body = await response.json();
@@ -45,5 +45,27 @@ export const getAuthToken = async (address: string): Promise<any> => {
   } catch (error) {
     console.log(error);
     return undefined;
+  }
+};
+
+export const castVote = async (token: string, address: string, projectId: number, amount: number): Promise<any> => {
+  try {
+    const response = await fetch("https://kolo-bpnvacqhoq-uc.a.run.app/api/v1/kolohack/users/poll/vote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        WalletAddress: address,
+        ProjectId: projectId,
+        NumberOfTokensForVote: amount
+      })
+    });
+    const body = await response.json();
+    return body;
+  } catch (error) {
+    console.log(error);
+    return { success: false, error: error };
   }
 };

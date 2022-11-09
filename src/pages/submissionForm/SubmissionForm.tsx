@@ -19,26 +19,27 @@ const SubmissionForm = () => {
   const [showImgInfo, setShowImgInfo] = useState<boolean>(false);
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
 
+  console.log(chain);
+
   const navigate = useNavigate();
   const initialValues = {
     email: ""
   };
   const onSubmit = async () => {
-    // need to replace title here
+    // @Gbenga: replace title with form-data
     const title = "test_API_1";
     const hexTitle = ethers.utils.formatBytes32String(title);
     try {
       if (signer) {
         const result: any = await submitProposal(signer, hexTitle);
-        console.log(result);
-
         const projectId = result.events[0].args.projectId;
 
         const params = {
-          WalletAddress: address,
+          SenderAddress: address,
           ChainId: chain?.name,
-          ProjectId: projectId,
+          ProjectId: parseInt(projectId.toString()),
           transactionHash: result?.transactionHash,
+          // @Gbenga: Add form-data
           ProjectName: "Project 1",
           ProjectCardImage: "image.png",
           ProjectTagLine: "I dont know",
@@ -47,11 +48,12 @@ const SubmissionForm = () => {
           YoutubeLink: "no-youtube",
           ContactPersonLastname: "David",
           ContactPersonOthernames: "Ultra",
-          SenderAddress: "0xc061832e120Bbf1c0BC5A42255DE3d53618Ea5Ab"
+          WalletAddress: "0xc061832e120Bbf1c0BC5A42255DE3d53618Ea5Ab"
         };
 
         const res = await submitProjectAPI(params);
         console.log(res);
+        // Display some kind of popup or notification?
       }
     } catch (error) {
       console.log(error);
@@ -67,8 +69,7 @@ const SubmissionForm = () => {
   };
   return (
     <>
-      {/* <button onClick={() => onSubmit()}>submit</button> */}
-
+      <button onClick={() => onSubmit()}>submit</button>
       <Frame title="Submission Form">
         <div className="product-detail">
           <div className="goBack" onClick={() => navigate(-1)}>
