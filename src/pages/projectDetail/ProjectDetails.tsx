@@ -7,7 +7,7 @@ import { useAccount, useProvider, useSigner } from "wagmi";
 import { useCountdown } from "../../hooks/useCountDown";
 import { castVote, getAuthToken } from "../../utils/API_call";
 import { getObjectId } from "../../utils/generateRandomToken";
-import { getTokenBalance } from "../../web3/contractCall";
+import { getTokenBalance, signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
 const ProjectDetails = () => {
@@ -22,14 +22,14 @@ const ProjectDetails = () => {
       try {
         const balance = await getTokenBalance(provider, address as string);
         console.log("Balance: ", balance?.toString());
-        // Input needed to compare if balance ? > vote amount
-        //const data = await signApproval(signer, address as string, 10);
-        //if (data.success) {
+        // @Gbenga: Amoun Input needed to compare if balance ? > vote amount
 
-        const token = await getAuthToken(address as string, getObjectId());
-        const res = await castVote(token.data.token, address as string, 2, 1);
-        console.log("Response: ", res);
-        //}
+        const data = await signApproval(signer, address as string, 10);
+        if (data.success) {
+          const token = await getAuthToken(address as string, getObjectId());
+          const res = await castVote(token.data.token, address as string, 2, 1);
+          console.log("Response: ", res);
+        }
       } catch (error) {
         console.log(error);
       }
