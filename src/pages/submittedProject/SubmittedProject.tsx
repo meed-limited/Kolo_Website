@@ -1,57 +1,35 @@
 import React from "react";
 
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useAccount, useProvider, useSigner } from "wagmi";
 
 import { useCountdown } from "../../hooks/useCountDown";
-import { getTokenBalance, signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
-const ProjectDetails = () => {
-  const navigate = useNavigate();
-  const { address } = useAccount();
-  const { data: signer } = useSigner();
-  const provider = useProvider();
+const SubmittedProject = () => {
   const [days, hours, minutes, seconds] = useCountdown("Dec 5, 2022 15:37:25");
 
-  const backendcall = (data: unknown) => {
-    console.log(`send ${data}`);
-  };
-
-  const sign = async () => {
-    if (provider && signer) {
-      try {
-        const balance = await getTokenBalance(provider, address as string);
-        console.log("Balance: ", balance?.toString());
-        const data = await signApproval(signer, address as string, 10);
-        if (data.success) await backendcall(data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
   return (
-    <Frame title="Project Detail">
+    <Frame title="Submitted Project">
+      <div className="title-header">Submitted Project</div>
       <div className="product-detail">
-        <div className="goBack" onClick={() => navigate(-1)}>
-          {"<<<"}
-        </div>
         <div className="content">
           <div className="header-wrapper">
             <div className="header">
               <div className="title">Gachapon!</div>
-              <div className="rank">#2</div>
+              <div className="ss-btns">
+                <Button variant="warning" className="state">
+                  <div className="state-div">State:</div>
+                  <div className="exp">
+                    Live for {days} more days and {`${hours}:${minutes}:${seconds}`}
+                  </div>
+                </Button>
+                <Button variant="light" className="edit">
+                  <img src="assets/images/edit.svg" /> Edit
+                </Button>
+              </div>
             </div>
             <div className="header">
               <div className="note">By We love Japan Organization</div>
-              <div className="expiryTimer">
-                <span className="iconify" data-icon="fluent:timer-32-regular"></span>{" "}
-                <div className="countdown">
-                  Live for {days} more days and {`${hours}:${minutes}:${seconds}`}
-                </div>
-              </div>
             </div>
           </div>
           <div className="project-body-wrapper">
@@ -59,7 +37,7 @@ const ProjectDetails = () => {
               <img className="image" src="assets/images/project-detail.png" />
               <div className="detail-breakdown">
                 <div className="organization">Organization</div>
-                {/* <div className="detail">
+                <div className="detail">
                   <img src="assets/images/organisation.png" />
                   <div className="breakdown">
                     <div className="summary">We love Japan Organization </div>
@@ -69,23 +47,6 @@ const ProjectDetails = () => {
                     </div>
                     <div className="learn-more">Learn more{">>>"}</div>
                   </div>
-                </div> */}
-                <div className="breakdown2">
-                  <div className="org">We love Japan Organization</div>
-                  <div className="org-btns">
-                    <Button variant="secondary">
-                      <span>
-                        <img src="assets/images/global.svg" />
-                        Official Website
-                      </span>
-                    </Button>
-                    <Button variant="secondary">
-                      <span>
-                        <img src="assets/images/youtube.svg" />
-                        Youtube
-                      </span>
-                    </Button>
-                  </div>
                 </div>
                 <div className="obj-backer">
                   <div className="objective">
@@ -93,20 +54,12 @@ const ProjectDetails = () => {
                     <div className="value">
                       <img src="assets/images/USDC.svg" /> <span>00000000</span>
                     </div>
-                    <div className="action-btn">
-                      <Button variant="danger">Contribute</Button>
-                    </div>
                   </div>
                   {/* <span className="iconify" data-icon="fluent:divider-short-20-regular"></span> */}
                   <div className="backer">
                     <div className="key">Number of Backers: : </div>
                     <div className="value">
                       <img src="assets/images/users.svg" /> <span>00000000</span>
-                    </div>
-                    <div className="action-btn">
-                      <Button variant="success" onClick={sign}>
-                        Vote Now
-                      </Button>
                     </div>
                   </div>
                 </div>
@@ -159,4 +112,4 @@ const ProjectDetails = () => {
   );
 };
 
-export default ProjectDetails;
+export default SubmittedProject;

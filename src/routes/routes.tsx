@@ -6,6 +6,8 @@ import Home from "../pages/home/Home";
 import ProjectDetails from "../pages/projectDetail/ProjectDetails";
 import ProjectList from "../pages/projectList/ProjectList";
 import SubmissionForm from "../pages/submissionForm/SubmissionForm";
+import SubmitSuccess from "../pages/submitSuccess/SubmitSuccess";
+import SubmittedProject from "../pages/submittedProject/SubmittedProject";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Routes = () => {
@@ -26,6 +28,22 @@ const Routes = () => {
         element={
           <ProtectedRoute>
             <SubmissionForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/submit-success"
+        element={
+          <ProtectedRoute>
+            <SubmitSuccess />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/submitted-project"
+        element={
+          <ProtectedRoute>
+            <SubmittedProject />
           </ProtectedRoute>
         }
       />
