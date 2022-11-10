@@ -2,12 +2,13 @@ import React, { useState, useRef } from "react";
 
 import { ethers } from "ethers";
 import { Formik } from "formik";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useNetwork, useSigner } from "wagmi";
 import * as Yup from "yup";
 
 import { submitProjectAPI } from "../../utils/API_call";
+import { convertFileToBase64String } from "../../utils/functions";
 import { submitProposal } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
@@ -18,13 +19,24 @@ const SubmissionForm = () => {
   const { chain } = useNetwork();
   const [showImgInfo, setShowImgInfo] = useState<boolean>(false);
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
+  const [projectCardImage, setProjectCardImage] = useState<any>("");
+
+  console.log(projectCardImage);
 
   const navigate = useNavigate();
   const initialValues = {
-    email: ""
+    WalletAddress: "",
+    ProjectName: "",
+    ProjectTagLine: "",
+    OrganizationName: "",
+    OrganizationWebsite: "",
+    YoutubeLink: "",
+    ContactPersonLastname: "",
+    ContactPersonOthernames: ""
   };
-  const onSubmit = async () => {
-    // @Gbenga: replace title with form-data
+
+  const onSubmit = async (value: any) => {
+    // need to replace title here
     const title = "test_API_1";
     const hexTitle = ethers.utils.formatBytes32String(title);
     try {
@@ -36,26 +48,41 @@ const SubmissionForm = () => {
 
         const projectId = result.events[0].args.projectId;
 
-        const params = {
-          SenderAddress: address,
-          ChainId: chain?.name,
-          ProjectId: parseInt(projectId.toString()),
-          transactionHash: result?.transactionHash,
-          // @Gbenga: Add form-data
-          ProjectName: "Project 1",
-          ProjectCardImage: "image.png",
-          ProjectTagLine: "I dont know",
-          OrganizationName: "Super Ultra",
-          OrganizationWebsite: "superultra.io",
-          YoutubeLink: "no-youtube",
-          ContactPersonLastname: "David",
-          ContactPersonOthernames: "Ultra",
-          WalletAddress: "0xc061832e120Bbf1c0BC5A42255DE3d53618Ea5Ab"
-        };
+        const params = new FormData();
+        params.append("SenderAddress", address as string);
+        params.append("ProjectId", projectId.toString());
+        params.append("ProjectName", value.ProjectName);
+        params.append("ChainId", chain?.name as string);
+        params.append("transactionHash", result?.transactionHash);
+        params.append("ProjectCardImage", projectCardImage);
+        params.append("ProjectTagLine", value.ProjectTagLine);
+        params.append("OrganizationName", value.OrganizationName);
+        params.append("OrganizationWebsite", value.OrganizationWebsite);
+        params.append("YoutubeLink", value.YoutubeLink);
+        params.append("ContactPersonLastname", value.ContactPersonLastname);
+        params.append("ContactPersonOthernames", value.ContactPersonOthernames);
+        params.append("WalletAddress", value.WalletAddress);
+
+        // const params = {
+        //   SenderAddress: address,
+        //   ChainId: chain?.name,
+        //   ProjectId: parseInt(projectId.toString()),
+        //   transactionHash: result?.transactionHash,
+        //   ProjectName: value.ProjectName,
+        //   ProjectCardImage: projectCardImage,
+        //   ProjectTagLine: value.ProjectTagLine,
+        //   OrganizationName: value.OrganizationName,
+        //   OrganizationWebsite: value.OrganizationWebsite,
+        //   YoutubeLink: value.YoutubeLink,
+        //   ContactPersonLastname: value.ContactPersonLastname,
+        //   ContactPersonOthernames: value.ContactPersonOthernames,
+        //   WalletAddress: value.WalletAddress
+        // };
 
         const res = await submitProjectAPI(params);
-        console.log(res);
-        // Display some kind of popup or notification?
+        if (res.status === 200) {
+          navigate("/submit-success");
+        }
       }
     } catch (error) {
       console.log(error);
@@ -71,7 +98,6 @@ const SubmissionForm = () => {
   };
   return (
     <>
-      <button onClick={() => onSubmit()}>submit</button>
       <Frame title="Submission Form">
         <div className="product-detail">
           <div className="goBack" onClick={() => navigate(-1)}>
@@ -88,7 +114,7 @@ const SubmissionForm = () => {
                   // errors,
                   // touched,
                   handleChange,
-                  // isSubmitting,
+                  isSubmitting,
                   handleBlur,
                   handleSubmit
                 }) => (
@@ -112,7 +138,11 @@ const SubmissionForm = () => {
                       <Form.Control
                         type="file"
                         className="upload"
-                        // onChange={handleChange}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          if (e.target.files) {
+                            convertFileToBase64String(e.target.files[0], setProjectCardImage);
+                          }
+                        }}
                         // onBlur={handleBlur}
                         // value={values.email}
                         ref={uploadBtnRef}
@@ -124,52 +154,55 @@ const SubmissionForm = () => {
                     <Form.Group className="mb-3">
                       <Form.Label>Organization Name</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
+                        name="OrganizationName"
                         placeholder="Organization Name"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.OrganizationName}
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Project Name</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Project Name"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        name="ProjectName"
+                        value={values.ProjectName}
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Project Tagline</Form.Label>
                       <Form.Control
                         as="textarea"
-                        type="email"
                         placeholder="Project Tagline"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.ProjectTagLine}
+                        name="ProjectTagLine"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>How much do you need for the project?</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Amount in USDC"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
+                        // onChange={handleChange}
+                        // onBlur={handleBlur}
+                        // value={values.}
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Organization Website</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Organization Website Link"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.OrganizationWebsite}
+                        name="OrganizationWebsite"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
@@ -197,11 +230,12 @@ const SubmissionForm = () => {
                         </ul>
                       )}
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Youtube Link"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.YoutubeLink}
+                        name="YoutubeLink"
                       />
                     </Form.Group>
                     <div className="personal-info">Personal information</div>
@@ -209,33 +243,38 @@ const SubmissionForm = () => {
                     <Form.Group className="mb-3">
                       <Form.Label>Contact FullName</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="First Name"
                         className="mb-3"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.ContactPersonOthernames}
+                        name="ContactPersonOthernames"
                       />
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Last Name"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.ContactPersonLastname}
+                        name="ContactPersonLastname"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Ethereum Wallet Address</Form.Label>
                       <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="Ethereum Wallet Address"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.email}
+                        value={values.WalletAddress}
+                        name="WalletAddress"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                      <Button className="submit-btn">Submit</Button>
+                      <Button className="submit-btn" type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? <Spinner animation="border" size="sm" /> : "Submit"}
+                      </Button>
                     </Form.Group>
                   </Form>
                 )}
