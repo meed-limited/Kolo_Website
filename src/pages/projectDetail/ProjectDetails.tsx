@@ -1,12 +1,12 @@
 import React from "react";
 
+import { sha256 } from "ethers/lib/utils";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useProvider, useSigner } from "wagmi";
 
 import { useCountdown } from "../../hooks/useCountDown";
 import { castVote, getAuthToken } from "../../utils/API_call";
-import { getObjectId } from "../../utils/generateRandomToken";
 import { getTokenBalance, signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
@@ -25,9 +25,14 @@ const ProjectDetails = () => {
         // @Gbenga: Amoun Input needed to compare if balance ? > vote amount
 
         const data = await signApproval(signer, address as string, 10);
+        console.log("data", data);
         if (data.success) {
-          const token = await getAuthToken(address as string, getObjectId());
-          const res = await castVote(token.data.token, address as string, 2, 1);
+          console.log("test");
+          // Hash the user address to generate a unique objectId per user
+          // Should be fetch from Moralis DB in the future
+          const objectId = sha256(address as string);
+          const token = await getAuthToken(address as string, objectId);
+          const res = await castVote(token.data.token, address as string, 3, 1);
           console.log("Response: ", res);
         }
       } catch (error) {

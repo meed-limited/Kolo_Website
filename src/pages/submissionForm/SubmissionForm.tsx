@@ -19,8 +19,6 @@ const SubmissionForm = () => {
   const [showImgInfo, setShowImgInfo] = useState<boolean>(false);
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
 
-  console.log(chain);
-
   const navigate = useNavigate();
   const initialValues = {
     email: ""
@@ -32,6 +30,10 @@ const SubmissionForm = () => {
     try {
       if (signer) {
         const result: any = await submitProposal(signer, hexTitle);
+        if (!result.success) {
+          console.log(result.error);
+        }
+
         const projectId = result.events[0].args.projectId;
 
         const params = {

@@ -50,7 +50,7 @@ export const getAuthToken = async (address: string, objectId: string): Promise<a
 
 export const castVote = async (token: string, address: string, projectId: number, amount: number): Promise<any> => {
   try {
-    const response = await fetch("https://kolo-bpnvacqhoq-uc.a.run.app/api/v1/kolohack/users/poll/vote", {
+    const response = await fetch("https://kolo-bpnvacqhoq-uc.a.run.app/api/v1/kolohack/poll/vote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

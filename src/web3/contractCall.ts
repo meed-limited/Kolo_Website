@@ -106,19 +106,15 @@ export const isPollOpened = async (
 
 /* Check if the poll is currently opened :
  *******************************************/
-export const submitProposal = async (
-  provider: Signer | Provider | undefined,
-  title: string
-): Promise<string | undefined> => {
+export const submitProposal = async (provider: Signer | Provider | undefined, title: string): Promise<any> => {
   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
 
   try {
     const tx = await ballotInstance.submitProject(title);
     const receipt = await tx.wait();
     return receipt;
-  } catch (error) {
-    console.log(error);
-    return undefined;
+  } catch (error: any) {
+    return { success: false, error: error.reason };
   }
 };
 
@@ -152,32 +148,8 @@ export const signApproval = async (
     );
     console.log("Result: ", result);
     return { success: true, data: result };
-  } catch (error) {
+  } catch (error: any) {
     console.log("Error: ", error);
-    return { success: false, data: error };
+    return { success: false, data: error.reason };
   }
 };
-
-// try {
-//   const tx = await tokenInstance.permit(
-//     address,
-//     ballotInstance.address,
-//     amoutToBN,
-//     result.deadline,
-//     result.v,
-//     result.r,
-//     result.s
-//   );
-
-//   const receipt = await tx.wait();
-//   console.log("Receipt: ", receipt);
-
-//   // Check allowance:
-//   const allowance = await tokenInstance.allowance(address, ballotInstance.address);
-//   console.log("Allowance:", parseInt(allowance));
-
-//   return receipt;
-// } catch (error) {
-//   console.log(error);
-//   return undefined;
-// }

@@ -10,14 +10,11 @@ export const BNB_TEST_PROVIDER = process.env.REACT_APP_NODE_BNB_TEST;
 
 // Contract Addresses in Production
 export const TOKEN = "";
-export const DAO_CONTRACT = "";
 export const BALLOT_CONTRACT = "";
 
 // Contract Addresses in Development
-// export const TOKEN_TEST = "0x53FAd67D1A9Be05D2D72d9F2b84D86Ff2CECEd98"; //KOL
-export const TOKEN_TEST = "0x71d60B1a4AaBfC87Cb1458f2b132D6573A99DA0E";
-export const DAO_CONTRACT_TEST = "";
-export const BALLOT_CONTRACT_TEST = "0xe76AC6Ebcc59233e4438280F0A1A6b65cA9F84D2";
+export const TOKEN_TEST = "0xf5D2d13222b6Bf8688EB05Ae091db7801a6862c2";
+export const BALLOT_CONTRACT_TEST = "0x794F6EA559380dd9D71797ef1B5E66D3373a3A61";
 
 /* Getter functions:
  *********************/
