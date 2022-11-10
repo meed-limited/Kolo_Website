@@ -44,3 +44,26 @@ export interface MenuItems {
   icon: string | undefined;
   label: string;
 }
+
+export interface Identity {
+  Deadline: number;
+  Rsig: string;
+  Ssig: string;
+  Vsig: string;
+}
+
+export interface ProjectSubmissionForm {
+  WalletAddress: string;
+  ChainId: string;
+  ProjectId: number;
+  transactionHash: string;
+  ProjectName: string;
+  ProjectCardImage: string;
+  ProjectTagLine: string;
+  OrganizationName: string;
+  OrganizationWebsite: string;
+  YoutubeLink: string;
+  ContactPersonLastname: string;
+  ContactPersonOthernames: string;
+  SenderAddress: string;
+}

@@ -66,7 +66,7 @@ export const castVote = async (
         WalletAddress: address,
         ProjectId: projectId,
         NumberOfTokensForVote: amount,
-        data: data
+        Identity: data
       })
     });
     const body = await response.json();

@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useProvider, useSigner } from "wagmi";
 
+import { Identity } from "../../../types";
 import { useCountdown } from "../../hooks/useCountDown";
 import { castVote, getAuthToken } from "../../utils/API_call";
 import { getTokenBalance, signApproval } from "../../web3/contractCall";
@@ -22,16 +23,23 @@ const ProjectDetails = () => {
       try {
         const balance = await getTokenBalance(provider, address as string);
         console.log("Balance: ", balance?.toString());
-        // @Gbenga: Amoun Input needed to compare if balance ? > vote amount
 
-        const data = await signApproval(signer, address as string, 10);
-        console.log("data", data);
+        const data: any = await signApproval(signer, address as string, 10);
         if (data.success) {
+          const identity: Identity = {
+            Deadline: data.data.deadline,
+            Rsig: data.data.r,
+            Ssig: data.data.s,
+            Vsig: data.data.v
+          };
           // Hash the user address to generate a unique objectId per user
           // Should be fetched from Moralis DB in the future
           const objectId = sha256(address as string);
           const token = await getAuthToken(address as string, objectId);
-          const res = await castVote(token.data.token, address as string, 3, 1, data.data);
+
+          // @Gbenga: projectId needed
+          // @Gbenga: Amount Input needed to compare if balance ? > vote amount
+          const res = await castVote(token.data.token, address as string, 3, 1, identity);
           console.log("Response: ", res);
         }
       } catch (error) {

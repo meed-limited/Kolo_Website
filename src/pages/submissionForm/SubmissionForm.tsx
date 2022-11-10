@@ -39,6 +39,7 @@ const SubmissionForm = () => {
     // need to replace title here
     const title = "test_API_1";
     const hexTitle = ethers.utils.formatBytes32String(title);
+
     try {
       if (signer) {
         const result: any = await submitProposal(signer, hexTitle);
@@ -46,7 +47,7 @@ const SubmissionForm = () => {
           console.log(result.error);
         }
 
-        const projectId = result.events[0].args.projectId;
+        const projectId: number = result.events[0].args.projectId;
 
         const params = new FormData();
         params.append("SenderAddress", address as string);
@@ -63,9 +64,9 @@ const SubmissionForm = () => {
         params.append("ContactPersonOthernames", value.ContactPersonOthernames);
         params.append("WalletAddress", value.WalletAddress);
 
-        // const params = {
-        //   SenderAddress: address,
-        //   ChainId: chain?.name,
+        // const params: ProjectSubmissionForm = {
+        //   SenderAddress: address as string,
+        //   ChainId: chain?.name as string,
         //   ProjectId: parseInt(projectId.toString()),
         //   transactionHash: result?.transactionHash,
         //   ProjectName: value.ProjectName,
