@@ -27,12 +27,11 @@ const ProjectDetails = () => {
         const data = await signApproval(signer, address as string, 10);
         console.log("data", data);
         if (data.success) {
-          console.log("test");
           // Hash the user address to generate a unique objectId per user
-          // Should be fetch from Moralis DB in the future
+          // Should be fetched from Moralis DB in the future
           const objectId = sha256(address as string);
           const token = await getAuthToken(address as string, objectId);
-          const res = await castVote(token.data.token, address as string, 3, 1);
+          const res = await castVote(token.data.token, address as string, 3, 1, data.data);
           console.log("Response: ", res);
         }
       } catch (error) {

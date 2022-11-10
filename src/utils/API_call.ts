@@ -48,7 +48,13 @@ export const getAuthToken = async (address: string, objectId: string): Promise<a
   }
 };
 
-export const castVote = async (token: string, address: string, projectId: number, amount: number): Promise<any> => {
+export const castVote = async (
+  token: string,
+  address: string,
+  projectId: number,
+  amount: number,
+  data: any
+): Promise<any> => {
   try {
     const response = await fetch("https://kolo-bpnvacqhoq-uc.a.run.app/api/v1/kolohack/poll/vote", {
       method: "POST",
@@ -59,7 +65,8 @@ export const castVote = async (token: string, address: string, projectId: number
       body: JSON.stringify({
         WalletAddress: address,
         ProjectId: projectId,
-        NumberOfTokensForVote: amount
+        NumberOfTokensForVote: amount,
+        data: data
       })
     });
     const body = await response.json();
