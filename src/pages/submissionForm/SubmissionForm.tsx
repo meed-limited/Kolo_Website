@@ -23,6 +23,8 @@ const SubmissionForm = () => {
 
   console.log(projectCardImage);
 
+  console.log(chain);
+
   const navigate = useNavigate();
   const initialValues = {
     WalletAddress: "",
@@ -32,9 +34,9 @@ const SubmissionForm = () => {
     OrganizationWebsite: "",
     YoutubeLink: "",
     ContactPersonLastname: "",
-    ContactPersonOthernames: "",
-    SenderAddress: ""
+    ContactPersonOthernames: ""
   };
+
   const onSubmit = async (value: any) => {
     // need to replace title here
     const title = "test_API_1";
@@ -42,25 +44,38 @@ const SubmissionForm = () => {
     try {
       if (signer) {
         const result: any = await submitProposal(signer, hexTitle);
-        console.log(result);
-
         const projectId = result.events[0].args.projectId;
 
-        const params = {
-          WalletAddress: address,
-          ChainId: chain?.name,
-          ProjectId: projectId,
-          transactionHash: result?.transactionHash,
-          ProjectName: value.ProjectName,
-          ProjectCardImage: projectCardImage,
-          ProjectTagLine: value.ProjectTagLine,
-          OrganizationName: value.OrganizationName,
-          OrganizationWebsite: value.OrganizationWebsite,
-          YoutubeLink: value.YoutubeLink,
-          ContactPersonLastname: value.ContactPersonLastname,
-          ContactPersonOthernames: value.ContactPersonOthernames,
-          SenderAddress: value.SenderAddress
-        };
+        const params = new FormData();
+        params.append("SenderAddress", address as string);
+        params.append("ProjectId", projectId.toString());
+        params.append("ProjectName", value.ProjectName);
+        params.append("ChainId", chain?.name as string);
+        params.append("transactionHash", result?.transactionHash);
+        params.append("ProjectCardImage", projectCardImage);
+        params.append("ProjectTagLine", value.ProjectTagLine);
+        params.append("OrganizationName", value.OrganizationName);
+        params.append("OrganizationWebsite", value.OrganizationWebsite);
+        params.append("YoutubeLink", value.YoutubeLink);
+        params.append("ContactPersonLastname", value.ContactPersonLastname);
+        params.append("ContactPersonOthernames", value.ContactPersonOthernames);
+        params.append("WalletAddress", value.WalletAddress);
+
+        // const params = {
+        //   SenderAddress: address,
+        //   ChainId: chain?.name,
+        //   ProjectId: parseInt(projectId.toString()),
+        //   transactionHash: result?.transactionHash,
+        //   ProjectName: value.ProjectName,
+        //   ProjectCardImage: projectCardImage,
+        //   ProjectTagLine: value.ProjectTagLine,
+        //   OrganizationName: value.OrganizationName,
+        //   OrganizationWebsite: value.OrganizationWebsite,
+        //   YoutubeLink: value.YoutubeLink,
+        //   ContactPersonLastname: value.ContactPersonLastname,
+        //   ContactPersonOthernames: value.ContactPersonOthernames,
+        //   WalletAddress: value.WalletAddress
+        // };
 
         const res = await submitProjectAPI(params);
         if (res.status === 200) {
@@ -81,8 +96,6 @@ const SubmissionForm = () => {
   };
   return (
     <>
-      {/* <button onClick={() => onSubmit()}>submit</button> */}
-
       <Frame title="Submission Form">
         <div className="product-detail">
           <div className="goBack" onClick={() => navigate(-1)}>
@@ -252,8 +265,8 @@ const SubmissionForm = () => {
                         placeholder="Ethereum Wallet Address"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.SenderAddress}
-                        name="SenderAddress"
+                        value={values.WalletAddress}
+                        name="WalletAddress"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">

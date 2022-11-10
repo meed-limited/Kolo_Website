@@ -15,9 +15,9 @@ export const BALLOT_CONTRACT = "";
 
 // Contract Addresses in Development
 // export const TOKEN_TEST = "0x53FAd67D1A9Be05D2D72d9F2b84D86Ff2CECEd98"; //KOL
-export const TOKEN_TEST = "0xB77Cdf9B2E1547c3b9b47744b490Fa4C1Dee7b63";
+export const TOKEN_TEST = "0x71d60B1a4AaBfC87Cb1458f2b132D6573A99DA0E";
 export const DAO_CONTRACT_TEST = "";
-export const BALLOT_CONTRACT_TEST = "0x9fC060dAc748D2B3D44ED3D1354A0d68F9040120";
+export const BALLOT_CONTRACT_TEST = "0xe76AC6Ebcc59233e4438280F0A1A6b65cA9F84D2";
 
 /* Getter functions:
  *********************/
