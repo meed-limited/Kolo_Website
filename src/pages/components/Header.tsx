@@ -92,12 +92,13 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
       </header>
       <span className="vote-btns">
         <div className="btns">
-          <Button variant="info" className="border-right">Project Submission</Button>
-          <Button variant="info">Project Vote</Button>
+          <Button variant="info" className="border-right">
+            Submission Phase
+          </Button>
+          <Button variant="info">Voting Phase</Button>
         </div>
       </span>
     </>
-    
   );
 };
 

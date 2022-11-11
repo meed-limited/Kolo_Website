@@ -152,7 +152,7 @@ export const bnb_testnet: Chain = {
   logo: "assets/images/chains/bsc_Logo.png"
 };
 
-export const chains: Chain[] = [ethereum, goerli, polygon, mumbai, fantom, fantom_testnet, bnb_mainnet, bnb_testnet];
+export const chains: Chain[] = [polygon, mumbai, bnb_mainnet, bnb_testnet];
 
 export const getExplorer = (chainId: number): string | undefined => {
   const current = chains.find((chain) => chain.id === chainId);
