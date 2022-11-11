@@ -52,7 +52,7 @@ export const castVote = async (
   token: string,
   address: string,
   projectId: number,
-  amount: number,
+  amount: string,
   data: any
 ): Promise<any> => {
   try {
