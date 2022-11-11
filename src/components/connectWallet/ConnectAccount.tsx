@@ -3,28 +3,34 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useAccount, useDisconnect } from "wagmi";
 
+import useStateManager from "../../hooks/useStateManager";
 import { useWindowWidthAndHeight } from "../../hooks/useWindowWidthAndHeight";
 import { getEllipsisTxt } from "../../utils/formatters";
 import ConnectModal from "./ConnectModal";
 import DisconnectModal from "./DisconnectModal";
+
 import "./style.css";
 
 const ConnectAccount = () => {
   const { address, connector: isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const { isMobile } = useWindowWidthAndHeight();
-  const [isConnectModalOpen, setIsConnectModalOpen] = useState<boolean>(false);
+  // const [isConnectModalOpen, setIsConnectModalOpen] = useState<boolean>(false);
   const [isDiconnectModalOpen, setIsDisconnectModalOpen] = useState<boolean>(false);
+  const globalState = useStateManager();
 
   const handleClick = () => {
-    if (isConnectModalOpen) setIsConnectModalOpen(false);
-    setIsConnectModalOpen(true);
+    // if (isConnectModalOpen) setIsConnectModalOpen(false);
+    // setIsConnectModalOpen(true);
+    if (globalState.openConnectModal.get()) globalState.openConnectModal.set(false);
+    globalState.openConnectModal.set(true);
   };
 
   const disconnectWallet = async () => {
     disconnect();
     setIsDisconnectModalOpen(false);
-    setIsConnectModalOpen(false);
+    // setIsConnectModalOpen(false);
+    globalState.openConnectModal.set(false);
     localStorage.removeItem("connectorId");
     window.location.reload();
   };
@@ -36,7 +42,10 @@ const ConnectAccount = () => {
           <Button onClick={handleClick}>
             <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
           </Button>
-          <ConnectModal isModalOpen={isConnectModalOpen} setIsModalOpen={setIsConnectModalOpen} />
+          <ConnectModal
+            isModalOpen={globalState.openConnectModal.get()}
+            setIsModalOpen={globalState.openConnectModal.set}
+          />
           <br />
         </>
       ) : (
