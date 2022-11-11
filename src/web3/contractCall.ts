@@ -146,7 +146,6 @@ export const signApproval = async (
       deadline,
       parseInt(nonce)
     );
-    console.log("Result: ", result);
 
     /* TEST */
     // CALL PERMIT FROM FRONT-END
