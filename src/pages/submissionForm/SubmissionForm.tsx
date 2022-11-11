@@ -48,25 +48,26 @@ const SubmissionForm = () => {
 
         const projectId: number = result.events[0].args.projectId;
 
-        const params = new FormData();
-        params.append("SenderAddress", address as string);
-        params.append("ProjectId", projectId.toString());
-        params.append("ProjectName", value.ProjectName);
-        params.append("ChainId", chain?.name as string);
-        params.append("transactionHash", result?.transactionHash);
-        params.append("ProjectCardImage", projectCardImage);
-        params.append("ProjectTagLine", value.ProjectTagLine);
-        params.append("AmountRequired", value.AmountRequired);
-        params.append("DesiredCurrency", "USDC");
-        params.append("OrganizationName", value.OrganizationName);
-        params.append("OrganizationWebsite", value.OrganizationWebsite);
-        params.append("YoutubeLink", value.YoutubeLink);
-        params.append("ContactPersonLastname", value.ContactPersonLastname);
-        params.append("ContactPersonOthernames", value.ContactPersonOthernames);
-        params.append("WalletAddress", value.WalletAddress);
+        const params = {
+          SenderAddress: address as string,
+          ProjectId: parseInt(projectId.toString()),
+          ProjectName: value.ProjectName,
+          ChainId: chain?.name as string,
+          transactionHash: result?.transactionHash,
+          ProjectCardImage: projectCardImage,
+          ProjectTagLine: value.ProjectTagLine,
+          AmountRequired: value.AmountRequired,
+          DesiredCurrency: "USDC",
+          OrganizationName: value.OrganizationName,
+          OrganizationWebsite: value.OrganizationWebsite,
+          YoutubeLink: value.YoutubeLink,
+          ContactPersonLastname: value.ContactPersonLastname,
+          ContactPersonOthernames: value.ContactPersonOthernames,
+          WalletAddress: value.WalletAddress
+        };
 
         const res = await submitProjectAPI(params);
-        if (res.status === 200) {
+        if (res.success) {
           navigate("/submit-success");
         }
       }
