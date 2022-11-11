@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import ChainSelector from "../../components/chain/ChainSelector";
 import ConnectAccount from "../../components/connectWallet/ConnectAccount";
 import useStateManager from "../../hooks/useStateManager";
+import Balance from "./Balance";
 
 interface HeaderProps {
   isLanding?: boolean;
@@ -83,6 +84,7 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
         {!isLanding && (
           <div className="nav-btn">
             <ChainSelector />
+            <Balance />
             <ConnectAccount />
             {/* <Button onClick={openConnectWallet}>
               <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
