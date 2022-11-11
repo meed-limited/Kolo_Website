@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+.scroll{
+  z-index: -1;
+}
+
 .landing-bg {
   width: 100vw;
   height: 100vh;
@@ -825,7 +829,7 @@ footer .super-ultra img {
 .vote-btns{
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-right: 80px;
 }
 
