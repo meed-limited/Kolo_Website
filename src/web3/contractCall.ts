@@ -27,15 +27,15 @@ export const getTokenName = async (
 
 /* Get the balance of a specific user address :
  ***********************************************/
-export const getTokenBalance = async (provider: any, address: string): Promise<string | undefined> => {
+export const getTokenBalance = async (provider: any, address: string): Promise<string | any> => {
   const tokenInstance = new ethers.Contract(token, Token_ABI, provider);
 
   try {
     const balance = await tokenInstance.balanceOf(address);
     return balance;
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
-    return undefined;
+    return { success: false, message: error.reason };
   }
 };
 
