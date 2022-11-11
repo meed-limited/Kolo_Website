@@ -31,3 +31,26 @@ export const PROJECTS: ProjectList = {
     }
   ]
 };
+
+export const AMOUNTBUTTONS = [
+  {
+    id: 1,
+    name: "USDC"
+  },
+  {
+    id: 2,
+    name: "wBTC"
+  },
+  {
+    id: 3,
+    name: "BNB"
+  },
+  {
+    id: 4,
+    name: "MATIC"
+  },
+  {
+    id: 5,
+    name: "ETH"
+  }
+]

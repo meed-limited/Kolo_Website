@@ -8,6 +8,7 @@ import { useAccount, useNetwork, useSigner } from "wagmi";
 import * as Yup from "yup";
 
 import { submitProjectAPI } from "../../utils/API_call";
+import { AMOUNTBUTTONS } from "../../utils/data";
 import { convertFileToBase64String } from "../../utils/functions";
 import { submitProposal } from "../../web3/contractCall";
 import Frame from "../components/Frame";
@@ -19,6 +20,7 @@ const SubmissionForm = () => {
   const { chain } = useNetwork();
   const [showImgInfo, setShowImgInfo] = useState<boolean>(false);
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<string>("");
   const [projectCardImage, setProjectCardImage] = useState<any>("");
 
   const navigate = useNavigate();
@@ -173,14 +175,27 @@ const SubmissionForm = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>How much do you need for the project?</Form.Label>
-                      <Form.Control
-                        type="number"
-                        placeholder="Amount in USDC"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.AmountRequired}
-                        name="AmountRequired"
-                      />
+                      <div className="amount-form-group">
+                        {AMOUNTBUTTONS.map((data: any) => (
+                          <button 
+                            key={data.id} 
+                            className={selectedCurrency === data.name ? "amount-btn active" : "amount-btn"} 
+                            onClick={() => setSelectedCurrency(data.name)}
+                            type="button"
+                          >
+                            {data.name}
+                          </button>
+                        ))}
+                        
+                        <Form.Control
+                          type="number"
+                          placeholder="Amount in USDC"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.AmountRequired}
+                          name="AmountRequired"
+                        />
+                      </div>
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Organization Website</Form.Label>
