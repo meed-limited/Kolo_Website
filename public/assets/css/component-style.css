@@ -8,7 +8,8 @@
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	*/
-  background-image: linear-gradient(to right, #ff48fa 0%, #78e4ff 3%, #78e4ff 97%, #ff48fa 100%);
+  background-image: linear-gradient(to right, #ff48fa 0%, #60F6FF 3%, #60F6FF 97%, #ff48fa 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 18px !important;
   box-sizing: border-box !important;
   color: #ffffff !important;
@@ -25,12 +26,13 @@
 }
 
 .btn-secondary:hover {
-  color: #fff;
+  color: #fff; 
+
 }
 
 .btn-secondary span {
   align-items: center;
-  background: #4250af;
+  background: rgba(126, 126, 126, 0.05);;
   border-radius: 18px;
   display: flex;
   justify-content: center;
