@@ -13,8 +13,8 @@ export const TOKEN = "";
 export const BALLOT_CONTRACT = "";
 
 // Contract Addresses in Development
-export const TOKEN_TEST = "0xf5D2d13222b6Bf8688EB05Ae091db7801a6862c2";
-export const BALLOT_CONTRACT_TEST = "0x794F6EA559380dd9D71797ef1B5E66D3373a3A61";
+export const TOKEN_TEST = "0x629A92d7940d511F0bEb1495418d0cF6B5Cf5f4e";
+export const BALLOT_CONTRACT_TEST = "0x566489364928ef33C02A2c2419937673968c7EEC";
 
 /* Getter functions:
  *********************/
