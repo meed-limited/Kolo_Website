@@ -19,7 +19,7 @@ const Frame: React.FC<FrameProps> = ({ title, children, isLanding }: FrameProps)
         <title>{title} | Kolo</title>
       </Helmet>
       <Header isLanding={isLanding} />
-      <Scrollbars autoHide autoHideTimeout={1} style={{ width: "100vw", height: "80vh" }}>
+      <Scrollbars autoHide autoHideTimeout={1} style={{ width: "100vw", height: "80vh" }} className="scroll">
         <div className="wrapper">{children}</div>
       </Scrollbars>
       <Footer isLanding={isLanding} />

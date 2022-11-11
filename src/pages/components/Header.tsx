@@ -90,14 +90,16 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
           </div>
         )}
       </header>
-      <span className="vote-btns">
-        <div className="btns">
-          <Button variant="info" className="border-right">
-            Submission Phase
-          </Button>
-          <Button variant="info">Voting Phase</Button>
-        </div>
-      </span>
+      {!isLanding && (
+        <span className="vote-btns">
+          <div className="btns">
+            <Button variant="info" className="border-right">
+              Submission Phase
+            </Button>
+            <Button variant="info">Voting phase</Button>
+          </div>
+        </span>
+      )}
     </>
   );
 };

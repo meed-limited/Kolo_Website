@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+.scroll {
+  z-index: -1;
+}
+
 .landing-bg {
   width: 100vw;
   height: 100vh;
@@ -822,16 +826,16 @@ footer .super-ultra img {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
 }
 
-.vote-btns{
+.vote-btns {
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-right: 80px;
 }
 
-.vote-btns .btns{
-  background: linear-gradient(90deg, #60F6FF 33.98%, rgba(255, 84, 121, 0.03) 52.04%);
-  border: 1px solid #FFFFFF;
+.vote-btns .btns {
+  background: linear-gradient(90deg, #60f6ff 33.98%, rgba(255, 84, 121, 0.03) 52.04%);
+  border: 1px solid #ffffff;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   padding: 2px 11px;
@@ -843,8 +847,8 @@ footer .super-ultra img {
   flex-direction: row;
 }
 
-.vote-btns .btns button{
-  font-family: 'Open Sans';
+.vote-btns .btns button {
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;

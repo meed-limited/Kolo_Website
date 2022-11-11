@@ -1,7 +1,7 @@
 import { createState, useState } from "@hookstate/core";
 
 const state = createState({
-  isAuth: true,
+  isAuth: false,
   openConnectModal: false,
   openSubmissionModal: false
 });
