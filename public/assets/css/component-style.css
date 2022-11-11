@@ -124,7 +124,7 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  top: 10px;
+  /* top: 5px; */
 }
 
 .btn-primary {
@@ -466,4 +466,30 @@
   -o-border-radius: 0px !important;
   padding-right: 5px !important;
   margin-right: 15px;
+}
+
+.bal-btn{
+  display: flex !important;
+  flex-direction: row;
+}
+
+.bal-btn .detail{
+  display: flex;
+  flex-direction: column;
+  margin-left: 3px;
+}
+
+.bal-btn .detail .title{
+  font-family: 'Open Sans' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin-bottom: 3px;
+  text-align: left;
+}
+
+.bal-btn .detail .value{
+  font-size: 12px !important;
 }

@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
         )}
 
         {!isLanding && (
-          <div>
+          <div className="btn-group-section">
             <ButtonGroup>
               <span>
                 <Button
