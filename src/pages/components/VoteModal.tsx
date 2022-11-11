@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 import { sha256 } from "ethers/lib/utils";
 import { Formik } from "formik";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form, Spinner } from 'react-bootstrap';
 import Modal from "react-bootstrap/Modal";
 import { useAccount, useProvider, useSigner } from "wagmi";
 import * as Yup from "yup";
@@ -17,65 +17,77 @@ interface VoteModalProps {
   projectId: number;
 }
 
-const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, projectId }: VoteModalProps) => {
-  const { address } = useAccount();
-  const { data: signer } = useSigner();
-  const provider = useProvider();
 
-  const initialValues: VoteForm = {
-    Amount: 0
-  };
+const VoteModal:React.FC<VoteModalProps>  = ({ isModalOpen, setIsModalOpen, projectId }: VoteModalProps) => {
+    const { address } = useAccount();
+    const { data: signer } = useSigner();
+    const provider = useProvider();
 
-  const onSubmit = async (value: VoteForm) => {
-    console.log(value);
-    if (provider && signer) {
-      try {
-        const balance = await getTokenBalance(provider, address as string);
-        console.log("Balance: ", balance?.toString());
-
-        const data: any = await signApproval(signer, address as string, 10);
-        if (data.success) {
-          const identity: Identity = {
-            Deadline: data.data.deadline,
-            Rsig: data.data.r,
-            Ssig: data.data.s,
-            Vsig: data.data.v
-          };
-          // Hash the user address to generate a unique objectId per user
-          // Should be fetched from Moralis DB in the future
-          const objectId = sha256(address as string);
-          const token = await getAuthToken(address as string, objectId);
-
-          // @Gbenga: projectId needed
-          // @Gbenga: Amount Input needed to compare if balance ? > vote amount
-          if (Number(balance?.toString()) > value.Amount) {
-            const res = await castVote(token.data.token, address as string, projectId, value.Amount, identity);
-            console.log("Response: ", res);
-          } else {
-            // Display an error
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    const initialValues: VoteForm = {
+        Amount: 0
     }
-  };
-
-  const validationSchema = Yup.object({
-    Amount: Yup.number().required("Vote Amount is required")
-  });
+    
+    const onSubmit = async (value: VoteForm) => {
+        console.log(value)
+        if (provider && signer) {
+            try {
+              const balance = await getTokenBalance(provider, address as string);
+              console.log("Balance: ", balance?.toString());
+      
+              const data: any = await signApproval(signer, address as string, 10);
+              if (data.success) {
+                const identity: Identity = {
+                  Deadline: data.data.deadline,
+                  Rsig: data.data.r,
+                  Ssig: data.data.s,
+                  Vsig: data.data.v
+                };
+                // Hash the user address to generate a unique objectId per user
+                // Should be fetched from Moralis DB in the future
+                const objectId = sha256(address as string);
+                const token = await getAuthToken(address as string, objectId);
+      
+                // @Gbenga: projectId needed
+                // @Gbenga: Amount Input needed to compare if balance ? > vote amount
+                if(Number(balance?.toString()) >= value.Amount){
+                    const res = await castVote(token.data.token, address as string, projectId, value.Amount, identity);
+                    console.log("Response: ", res);
+                }
+                else{
+                    // Display an error
+                }
+                
+                
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          }
+    }
+    
+    const validationSchema = Yup.object({
+        Amount: Yup.number().required("Vote Amount is required"),
+      });
   return (
     <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)} centered className="connect-modal">
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className="modal-wrapper">
-          <div className="wallets">
-            <div className="title">Vote</div>
-            <div className="form">
-              <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-                {({ values, errors, touched, handleChange, isSubmitting, handleBlur, handleSubmit }) => (
-                  <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3">
+            <div className="wallets">
+                <div className="title">Vote</div>
+                <div className="form">
+                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  isSubmitting,
+                  handleBlur,
+                  handleSubmit
+                }) => (
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3">
                       <Form.Label>Amount</Form.Label>
                       <Form.Control
                         type="number"
@@ -85,24 +97,24 @@ const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, proj
                         onBlur={handleBlur}
                         value={values.Amount}
                       />
-                      <small className="form-text text-danger2">
+                    <small className="form-text text-danger2">
                         <b>{errors.Amount && touched.Amount && errors.Amount}</b>
-                      </small>
+                    </small>
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Button className="submit-btn" type="submit" disabled={isSubmitting}>
                         {isSubmitting ? <Spinner animation="border" size="sm" /> : "Submit"}
-                      </Button>
+                      </Button> 
                     </Form.Group>
-                  </Form>
+                    </Form>
                 )}
-              </Formik>
+                </Formik>
+                </div>
             </div>
-          </div>
         </div>
       </Modal.Body>
     </Modal>
-  );
-};
+  )
+}
 
-export default VoteModal;
+export default VoteModal
