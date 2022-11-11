@@ -8,7 +8,7 @@ import { useAccount, useProvider, useSigner } from "wagmi";
 import { Identity } from "../../../types";
 import { useCountdown } from "../../hooks/useCountDown";
 import { castVote, getAuthToken } from "../../utils/API_call";
-import { getTokenBalance, signApproval } from "../../web3/contractCall";
+import { signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
 
 const ProjectDetails = () => {
@@ -21,8 +21,9 @@ const ProjectDetails = () => {
   const vote = async () => {
     if (provider && signer) {
       try {
-        const balance = await getTokenBalance(provider, address as string);
-        console.log("Balance: ", balance?.toString());
+        // const balance = await getTokenBalance(provider, address as string);
+        // console.log("Balance: ", balance);
+        // console.log("Balance: ", balance?.toString());
 
         const data: any = await signApproval(signer, address as string, 10);
         if (data.success) {
