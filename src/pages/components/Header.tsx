@@ -2,6 +2,7 @@ import React from "react";
 
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAccount } from "wagmi";
 
 import ChainSelector from "../../components/chain/ChainSelector";
 import ConnectAccount from "../../components/connectWallet/ConnectAccount";
@@ -12,6 +13,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
+  const { isConnected } = useAccount();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   // };
 
   const goToSubmissionForm = () => {
-    if (globalState.isAuth.get()) {
+    if (isConnected) {
       navigate("/submission-form");
     } else {
       globalState.openConnectModal.set(true);
