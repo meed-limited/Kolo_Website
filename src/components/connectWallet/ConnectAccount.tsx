@@ -22,8 +22,9 @@ const ConnectAccount = () => {
   const handleClick = () => {
     // if (isConnectModalOpen) setIsConnectModalOpen(false);
     // setIsConnectModalOpen(true);
+    globalState.showConnectModalAnimation.set(false)
     if (globalState.openConnectModal.get()) globalState.openConnectModal.set(false);
-    globalState.openConnectModal.set(true);
+      globalState.openConnectModal.set(true);
   };
 
   const disconnectWallet = async () => {
