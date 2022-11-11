@@ -3,7 +3,9 @@ import React from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import { useNavigate } from "react-router-dom";
 
+import { Project } from "../../../types";
 import { useCountdown } from "../../hooks/useCountDown";
+import { PROJECTS } from "../../utils/data";
 import Frame from "../components/Frame";
 import ListBox from "../components/ListBox";
 
@@ -26,7 +28,19 @@ const ProjectList = () => {
       </div>
       <div>
         <Scrollbars autoHide autoHideTimeout={1} style={{ width: "100%", height: "70vh" }}>
-          <div onClick={() => navigate("/project-detail")}>
+          {PROJECTS.Projects.map((data: Project) => (
+            <div onClick={() => navigate("/project-detail", { state: data })} key={data.id}>
+              <ListBox
+                imagePath={data.image}
+                title={data.title}
+                detail={data.info}
+                objective={data.objective}
+                backer={data.backers}
+                rank={data.rank}
+              />
+            </div>
+          ))}
+          {/* <div onClick={() => navigate("/project-detail")}>
             <ListBox
               imagePath="assets/images/pl4.png"
               title="Planet Giant"
@@ -55,7 +69,7 @@ const ProjectList = () => {
               backer="00000000"
               rank={3}
             />
-          </div>
+          </div> */}
         </Scrollbars>
       </div>
     </Frame>

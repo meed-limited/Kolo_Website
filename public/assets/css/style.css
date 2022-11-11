@@ -309,7 +309,7 @@ footer .super-ultra img {
 }
 
 .product-detail .content .project-body .image {
-  max-width: 426px;
+  min-width: 426px;
   border-radius: 16px;
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
@@ -702,9 +702,6 @@ footer .super-ultra img {
   color: #ffffff;
 }
 
-.submit-success-wrapper .footer .footer-content .footer-btn {
-}
-
 .submit-success-wrapper .footer .footer-content .footer-btn .btn-primary {
   width: 100%;
   background: linear-gradient(180deg, #8dafff 0%, rgba(141, 175, 255, 0) 100%);
@@ -717,6 +714,11 @@ footer .super-ultra img {
   line-height: 25px;
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 /* Submitted Project */
@@ -766,4 +768,56 @@ footer .super-ultra img {
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 14px 15px;
+}
+
+.modal-wrapper .form label {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.modal-wrapper .form input {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(217, 217, 217, 0.46) 100%);
+  border: 1px solid #7d909b;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.modal-wrapper .form input::placeholder,
+.modal-wrapper .form input {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-wrapper .form button {
+  background: linear-gradient(180deg, #8dafff 0%, rgba(141, 175, 255, 0) 100%) !important;
+  border-radius: 16px !important;
+  width: 100%;
+  -webkit-border-radius: 16px !important;
+  -moz-border-radius: 16px !important;
+  -ms-border-radius: 16px !important;
+  -o-border-radius: 16px !important;
+  font-family: "Trinos";
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 22px !important;
+  line-height: 56px !important;
+  text-align: center !important;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
 }

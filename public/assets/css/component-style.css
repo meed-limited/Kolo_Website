@@ -446,3 +446,7 @@
   -ms-border-radius: 16px !important;
   -o-border-radius: 16px !important;
 }
+
+.text-danger2 {
+  color: #ff577b !important;
+}
