@@ -821,3 +821,36 @@ footer .super-ultra img {
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
 }
+
+.vote-btns{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 100px;
+  margin-right: 80px;
+}
+
+.vote-btns .btns{
+  background: linear-gradient(90deg, #60F6FF 33.98%, rgba(255, 84, 121, 0.03) 52.04%);
+  border: 1px solid #FFFFFF;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 2px 11px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.vote-btns .btns button{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #969696;
+}

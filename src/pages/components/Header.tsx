@@ -34,61 +34,70 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   };
 
   return (
-    <header>
-      <div className="icons-section">
-        {isLanding ? (
-          <Logo />
-        ) : (
-          <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+    <>
+      <header>
+        <div className="icons-section">
+          {isLanding ? (
             <Logo />
+          ) : (
+            <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+              <Logo />
+            </div>
+          )}
+          {isLanding && <span>Start redistribute game revenue to various projects from KOLO</span>}
+        </div>
+        {isLanding && (
+          <div className="action-btns">
+            <Button variant="secondary">
+              <span>Download KOLO app</span>
+            </Button>
+            <Button variant="secondary" onClick={goToApp}>
+              <span>Launch web-app</span>
+            </Button>
           </div>
         )}
-        {isLanding && <span>Start redistribute game revenue to various projects from KOLO</span>}
-      </div>
-      {isLanding && (
-        <div className="action-btns">
-          <Button variant="secondary">
-            <span>Download KOLO app</span>
-          </Button>
-          <Button variant="secondary" onClick={goToApp}>
-            <span>Launch web-app</span>
-          </Button>
-        </div>
-      )}
 
-      {!isLanding && (
-        <div>
-          <ButtonGroup>
-            <span>
-              <Button
-                variant="link"
-                className={location.pathname === "/project-list" ? "active" : ""}
-                onClick={goToApp}
-              >
-                Project
-              </Button>
-              <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
-              <Button
-                variant="link"
-                className={location.pathname === "/submission-form" ? "active" : ""}
-                onClick={goToSubmissionForm}
-              >
-                Submit Project
-              </Button>
-            </span>
-          </ButtonGroup>
+        {!isLanding && (
+          <div>
+            <ButtonGroup>
+              <span>
+                <Button
+                  variant="link"
+                  className={location.pathname === "/project-list" ? "active" : ""}
+                  onClick={goToApp}
+                >
+                  Project
+                </Button>
+                <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
+                <Button
+                  variant="link"
+                  className={location.pathname === "/submission-form" ? "active" : ""}
+                  onClick={goToSubmissionForm}
+                >
+                  Submit Project
+                </Button>
+              </span>
+            </ButtonGroup>
+          </div>
+        )}
+        {!isLanding && (
+          <div className="nav-btn">
+            <ChainSelector />
+            <ConnectAccount />
+            {/* <Button onClick={openConnectWallet}>
+              <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
+            </Button> */}
+          </div>
+        )}
+      </header>
+      <span className="vote-btns">
+        <div className="btns">
+          <Button variant="info" className="border-right">Project Submission</Button>
+          <Button variant="info">Project Vote</Button>
         </div>
-      )}
-      {!isLanding && (
-        <div className="nav-btn">
-          <ChainSelector />
-          <ConnectAccount />
-          {/* <Button onClick={openConnectWallet}>
-            <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
-          </Button> */}
-        </div>
-      )}
-    </header>
+      </span>
+    </>
+    
   );
 };
 
