@@ -40,7 +40,7 @@ const ProjectList = () => {
               />
             </div>
           ))}
-          <div onClick={() => navigate("/project-detail")}>
+          {/* <div onClick={() => navigate("/project-detail")}>
             <ListBox
               imagePath="assets/images/pl4.png"
               title="Planet Giant"
@@ -69,7 +69,7 @@ const ProjectList = () => {
               backer="00000000"
               rank={3}
             />
-          </div>
+          </div> */}
         </Scrollbars>
       </div>
     </Frame>
