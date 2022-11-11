@@ -1,50 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { sha256 } from "ethers/lib/utils";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useAccount, useProvider, useSigner } from "wagmi";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import { Identity } from "../../../types";
+import { Project } from "../../../types";
 import { useCountdown } from "../../hooks/useCountDown";
-import { castVote, getAuthToken } from "../../utils/API_call";
-import { getTokenBalance, signApproval } from "../../web3/contractCall";
 import Frame from "../components/Frame";
+import VoteModal from "../components/VoteModal";
 
 const ProjectDetails = () => {
   const navigate = useNavigate();
-  const { address } = useAccount();
-  const { data: signer } = useSigner();
-  const provider = useProvider();
+  const location = useLocation();
+
+  const [openVoteModal, setOpenVoteModal] = useState<boolean>(false);
+  const [project, setProject] = useState<Project | null>(null);
+  const [projectId, setProjectId] = useState<number>(0);
   const [days, hours, minutes, seconds] = useCountdown("Dec 5, 2022 15:37:25");
 
-  const vote = async () => {
-    if (provider && signer) {
-      try {
-        const balance = await getTokenBalance(provider, address as string);
-        console.log("Balance: ", balance?.toString());
+  useEffect(() => {
+    setProject(location.state);
+  }, []);
 
-        const data: any = await signApproval(signer, address as string, 10);
-        if (data.success) {
-          const identity: Identity = {
-            Deadline: data.data.deadline,
-            Rsig: data.data.r,
-            Ssig: data.data.s,
-            Vsig: data.data.v
-          };
-          // Hash the user address to generate a unique objectId per user
-          // Should be fetched from Moralis DB in the future
-          const objectId = sha256(address as string);
-          const token = await getAuthToken(address as string, objectId);
-
-          // @Gbenga: projectId needed
-          // @Gbenga: Amount Input needed to compare if balance ? > vote amount
-          const res = await castVote(token.data.token, address as string, 3, 1, identity);
-          console.log("Response: ", res);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+  const vote = async (id: any) => {
+    if (id && typeof id === "number") {
+      setProjectId(id);
+      setOpenVoteModal(true);
     }
   };
 
@@ -57,8 +37,8 @@ const ProjectDetails = () => {
         <div className="content">
           <div className="header-wrapper">
             <div className="header">
-              <div className="title">Gachapon!</div>
-              <div className="rank">#2</div>
+              <div className="title">{project?.title}</div>
+              <div className="rank">#{project?.rank}</div>
             </div>
             <div className="header">
               <div className="note">By We love Japan Organization</div>
@@ -72,7 +52,7 @@ const ProjectDetails = () => {
           </div>
           <div className="project-body-wrapper">
             <div className="project-body">
-              <img className="image" src="assets/images/project-detail.png" />
+              <img className="image" src={project?.image} />
               <div className="detail-breakdown">
                 <div className="organization">Organization</div>
                 {/* <div className="detail">
@@ -107,7 +87,7 @@ const ProjectDetails = () => {
                   <div className="objective">
                     <div className="key">Objective:</div>
                     <div className="value">
-                      <img src="assets/images/USDC.svg" /> <span>00000000</span>
+                      <img src="assets/images/USDC.svg" /> <span>{project?.objective}</span>
                     </div>
                     <div className="action-btn">
                       <Button variant="danger">Contribute</Button>
@@ -117,10 +97,10 @@ const ProjectDetails = () => {
                   <div className="backer">
                     <div className="key">Number of Backers: : </div>
                     <div className="value">
-                      <img src="assets/images/users.svg" /> <span>00000000</span>
+                      <img src="assets/images/users.svg" /> <span>{project?.backers}</span>
                     </div>
                     <div className="action-btn">
-                      <Button variant="success" onClick={vote}>
+                      <Button variant="success" onClick={() => vote(project?.id)}>
                         Vote Now
                       </Button>
                     </div>
@@ -132,12 +112,13 @@ const ProjectDetails = () => {
           <div className="info-section">
             <div className="title">Information</div>
             <div className="info-body">
-              <p>
+              <p>{project?.info}</p>
+              {/* <p>
                 We based Gachapon on the vending machines popular in Japan and other Asian countries that dispense
                 capsules with toys or other goodies. The name Gachapon (also known as Gashapon) comes from the sounds of
                 turning the crank handle (Gacha) and the capsule landing in the tray (pon).
-              </p>
-              <p>
+              </p> */}
+              {/* <p>
                 There have already been many digital versions of Gachapon delivered through mobile apps and in many
                 types of video games. Now we have our own, and this one dispenses NFTs. Lots and lots of NFTs.
               </p>
@@ -146,7 +127,7 @@ const ProjectDetails = () => {
                 Season One Gachapon NFTs all contain a Chilli Bottle NFT. There are ten thousand of these of varying
                 rarity. These NFTs will play a significant role in expanding the Super Ultra arcade. Just hold on to
                 them for now
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="social-section">
@@ -171,6 +152,7 @@ const ProjectDetails = () => {
           </div>
         </div>
       </div>
+      <VoteModal isModalOpen={openVoteModal} setIsModalOpen={setOpenVoteModal} projectId={projectId} />
     </Frame>
   );
 };

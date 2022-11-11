@@ -9,9 +9,9 @@ interface SubmissionModalProps {
 
 const SubmissionModal: React.FC<SubmissionModalProps> = ({ isModalOpen, setIsModalOpen }: SubmissionModalProps) => {
   return (
-    <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)} centered className="submission-modal">
+    <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)} centered className="connect-modal">
       <Modal.Header closeButton></Modal.Header>
-      <Modal.Body>submission</Modal.Body>
+      <Modal.Body>hhhhhhhhhhhhhhhhhhhhhhh</Modal.Body>
     </Modal>
   );
 };

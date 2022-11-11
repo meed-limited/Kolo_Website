@@ -67,3 +67,21 @@ export interface ProjectSubmissionForm {
   ContactPersonOthernames: string;
   SenderAddress: string;
 }
+
+export interface VoteForm {
+  Amount: number;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  info: string;
+  image: string;
+  rank: number;
+  backers: string;
+  objective: string;
+}
+
+export interface ProjectList {
+  Projects: Project[];
+}
