@@ -17,7 +17,7 @@ const Balance = () => {
     const fetch = async () => {
       const res = await getTokenBalance(provider, address as string)
       const bal = Number(res?.toString()) / 10 ** 18;
-      setBalance(bal.toString());
+      setBalance(Number.isNaN(bal) ? "0000" : bal.toString());
     }
 
     if(isConnected && provider){
