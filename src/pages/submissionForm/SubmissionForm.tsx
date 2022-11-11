@@ -21,8 +21,6 @@ const SubmissionForm = () => {
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
   const [projectCardImage, setProjectCardImage] = useState<any>("");
 
-  console.log(projectCardImage);
-
   const navigate = useNavigate();
   const initialValues = {
     WalletAddress: "",
@@ -32,12 +30,13 @@ const SubmissionForm = () => {
     OrganizationWebsite: "",
     YoutubeLink: "",
     ContactPersonLastname: "",
-    ContactPersonOthernames: ""
+    ContactPersonOthernames: "",
+    AmountRequired: 0,
+    DesiredCurrency: ""
   };
 
   const onSubmit = async (value: any) => {
-    // need to replace title here
-    const title = "test_API_1";
+    const title = value.ProjectName;
     const hexTitle = ethers.utils.formatBytes32String(title);
 
     try {
@@ -57,28 +56,14 @@ const SubmissionForm = () => {
         params.append("transactionHash", result?.transactionHash);
         params.append("ProjectCardImage", projectCardImage);
         params.append("ProjectTagLine", value.ProjectTagLine);
+        params.append("AmountRequired", value.AmountRequired);
+        params.append("DesiredCurrency", "USDC");
         params.append("OrganizationName", value.OrganizationName);
         params.append("OrganizationWebsite", value.OrganizationWebsite);
         params.append("YoutubeLink", value.YoutubeLink);
         params.append("ContactPersonLastname", value.ContactPersonLastname);
         params.append("ContactPersonOthernames", value.ContactPersonOthernames);
         params.append("WalletAddress", value.WalletAddress);
-
-        // const params: ProjectSubmissionForm = {
-        //   SenderAddress: address as string,
-        //   ChainId: chain?.name as string,
-        //   ProjectId: parseInt(projectId.toString()),
-        //   transactionHash: result?.transactionHash,
-        //   ProjectName: value.ProjectName,
-        //   ProjectCardImage: projectCardImage,
-        //   ProjectTagLine: value.ProjectTagLine,
-        //   OrganizationName: value.OrganizationName,
-        //   OrganizationWebsite: value.OrganizationWebsite,
-        //   YoutubeLink: value.YoutubeLink,
-        //   ContactPersonLastname: value.ContactPersonLastname,
-        //   ContactPersonOthernames: value.ContactPersonOthernames,
-        //   WalletAddress: value.WalletAddress
-        // };
 
         const res = await submitProjectAPI(params);
         if (res.status === 200) {
@@ -188,11 +173,12 @@ const SubmissionForm = () => {
                     <Form.Group className="mb-3">
                       <Form.Label>How much do you need for the project?</Form.Label>
                       <Form.Control
-                        type="text"
+                        type="number"
                         placeholder="Amount in USDC"
-                        // onChange={handleChange}
-                        // onBlur={handleBlur}
-                        // value={values.}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.AmountRequired}
+                        name="AmountRequired"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">

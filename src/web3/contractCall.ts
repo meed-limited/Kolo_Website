@@ -124,7 +124,7 @@ export const submitProposal = async (provider: Signer | Provider | undefined, ti
 export const signApproval = async (
   provider: Signer | Provider | undefined,
   address: string,
-  amount: number
+  amount: string
 ): Promise<{
   success: boolean;
   data: unknown;
@@ -132,7 +132,7 @@ export const signApproval = async (
   const tokenInstance = new ethers.Contract(token, Token_ABI, provider);
   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
 
-  const amoutToBN = ethers.utils.parseUnits(amount.toString(), 18);
+  // const amoutToBN = ethers.utils.parseUnits(amount.toString(), 18);
   const deadline = 100000000000000;
   const nonce = await tokenInstance.nonces(address);
 
@@ -142,11 +142,30 @@ export const signApproval = async (
       tokenInstance.address,
       address,
       ballotInstance.address,
-      amoutToBN.toString(),
+      amount,
       deadline,
       parseInt(nonce)
     );
     console.log("Result: ", result);
+
+    /* TEST */
+    // CALL PERMIT FROM FRONT-END
+    // const test = await tokenInstance.permit(
+    //   address,
+    //   ballotInstance.address,
+    //   amoutToBN.toString(),
+    //   result.deadline,
+    //   result.v,
+    //   result.r,
+    //   result.s
+    // );
+    // console.log("test: ", test);
+
+    // CHECK THAT ALLOWANCE IS SET
+    // const allowance = await tokenInstance.allowance(address, ballotInstance.address);
+    // console.log("allowance: ", Number(allowance.toString()) / 10 ** 18);
+    /* TEST */
+
     return { success: true, data: result };
   } catch (error: any) {
     console.log("Error: ", error);
