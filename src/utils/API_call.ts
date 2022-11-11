@@ -13,6 +13,8 @@ export const submitProjectAPI = async (params: any): Promise<any> => {
       ProjectCardImage: params.ProjectCardImage,
       ProjectTagLine: params.ProjectTagLine,
       OrganizationName: params.OrganizationName,
+      AmountRequired: params.AmountRequired,
+      DesiredCurrency: params.DesiredCurrency,
       OrganizationWebsite: params.OrganizationWebsite,
       YoutubeLink: params.YoutubeLink,
       ContactPersonLastname: params.ContactPersonLastname,
