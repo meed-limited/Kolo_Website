@@ -468,19 +468,19 @@
   margin-right: 15px;
 }
 
-.bal-btn{
+.bal-btn {
   display: flex !important;
   flex-direction: row;
 }
 
-.bal-btn .detail{
+.bal-btn .detail {
   display: flex;
   flex-direction: column;
   margin-left: 3px;
 }
 
-.bal-btn .detail .title{
-  font-family: 'Open Sans' !important;
+.bal-btn .detail .title {
+  font-family: "Open Sans" !important;
   font-style: normal !important;
   font-weight: 400 !important;
   font-size: 12px !important;
@@ -490,6 +490,6 @@
   text-align: left;
 }
 
-.bal-btn .detail .value{
+.bal-btn .detail .value {
   font-size: 12px !important;
 }

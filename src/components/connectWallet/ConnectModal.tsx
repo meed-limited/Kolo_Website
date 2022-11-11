@@ -14,7 +14,7 @@ interface ConnectModalProps {
 
 const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen }) => {
   const { connect, connectors, isLoading, pendingConnector } = useConnect();
-  const globalState = useStateManager()
+  const globalState = useStateManager();
 
   const getConnectorImage = (connector: Connector) => {
     const data = IMAGES.find((item) => item.name.toLowerCase() === connector.name.toLowerCase());
@@ -29,7 +29,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
       onHide={() => {
         setIsModalOpen(false);
       }}
-      centered 
+      centered
       className="connect-modal"
     >
       <Modal.Header closeButton></Modal.Header>
@@ -37,13 +37,13 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
       <Modal.Body>
         <motion.div
           className="modal-wrapper"
-          initial={globalState.showConnectModalAnimation.get() ? { y: 0 } : {y: -400}}
+          initial={globalState.showConnectModalAnimation.get() ? { y: 0 } : { y: -400 }}
           animate={{ y: -400 }}
           transition={{ duration: 1.5, delay: 0.5 }}
         >
           <motion.div
             className="connect-intro"
-            initial={globalState.showConnectModalAnimation.get() ? { opacity: 1 } : {opacity: 0}}
+            initial={globalState.showConnectModalAnimation.get() ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1.5, delay: 0.5 }}
           >
@@ -54,7 +54,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
           </motion.div>
           <motion.div
             className="wallets"
-            initial={globalState.showConnectModalAnimation.get() ? { opacity: 0 } : {opacity: 1}}
+            initial={globalState.showConnectModalAnimation.get() ? { opacity: 0 } : { opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
           >
@@ -79,11 +79,11 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
             <div className="infos">
               <div className="help">Need help installing a wallet?</div>
               <div className="link">
-                <a 
+                <a
                   href="https://metamask.zendesk.com/hc/en-us/articles/360015489471-How-to-Install-MetaMask-Manually"
                   target="_blank"
                   rel="noopener"
-                > 
+                >
                   Click here
                 </a>
               </div>

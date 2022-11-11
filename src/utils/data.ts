@@ -53,4 +53,4 @@ export const AMOUNTBUTTONS = [
     id: 5,
     name: "ETH"
   }
-]
+];

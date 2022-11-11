@@ -18,7 +18,8 @@
     "anonymous": false,
     "inputs": [
       { "indexed": false, "internalType": "uint256", "name": "polllId", "type": "uint256" },
-      { "indexed": false, "internalType": "uint256", "name": "projectId", "type": "uint256" }
+      { "indexed": false, "internalType": "uint256", "name": "projectId", "type": "uint256" },
+      { "indexed": false, "internalType": "address", "name": "winner", "type": "address" }
     ],
     "name": "PollWinnerAnnounced",
     "type": "event"
@@ -63,15 +64,18 @@
   },
   {
     "inputs": [{ "internalType": "uint256", "name": "pollId", "type": "uint256" }],
-    "name": "getProjects",
-    "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
+    "name": "getPollResult",
+    "outputs": [
+      { "internalType": "uint256[]", "name": "", "type": "uint256[]" },
+      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "projectId", "type": "uint256" }],
-    "name": "getVoteCount",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [{ "internalType": "uint256", "name": "pollId", "type": "uint256" }],
+    "name": "getProjects",
+    "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
     "stateMutability": "view",
     "type": "function"
   },

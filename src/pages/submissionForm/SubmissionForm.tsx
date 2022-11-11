@@ -177,16 +177,16 @@ const SubmissionForm = () => {
                       <Form.Label>How much do you need for the project?</Form.Label>
                       <div className="amount-form-group">
                         {AMOUNTBUTTONS.map((data: any) => (
-                          <button 
-                            key={data.id} 
-                            className={selectedCurrency === data.name ? "amount-btn active" : "amount-btn"} 
+                          <button
+                            key={data.id}
+                            className={selectedCurrency === data.name ? "amount-btn active" : "amount-btn"}
                             onClick={() => setSelectedCurrency(data.name)}
                             type="button"
                           >
                             {data.name}
                           </button>
                         ))}
-                        
+
                         <Form.Control
                           type="number"
                           placeholder="Amount in USDC"

@@ -16,7 +16,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }: ProtectedRo
   const isAuth = globalState.isAuth.get();
   console.log(isAuth);
   if (!isConnected) {
-    globalState.showConnectModalAnimation.set(true)
+    globalState.showConnectModalAnimation.set(true);
     globalState.openConnectModal.set(true);
     return <Navigate to="/project-list" replace />;
   }
