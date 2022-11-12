@@ -273,31 +273,31 @@ footer .super-ultra img {
   width: 387px;
 }
 
-.timeline-section{
+.timeline-section {
   position: relative;
   max-width: 980px;
   width: 100%;
 }
 
-.timeline-section .title{
-  font-family: 'Trinos';
+.timeline-section .title {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 38px;
   line-height: 56px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 38px;
 }
 
-.timeline-section .timeline-detail .durations{
+.timeline-section .timeline-detail .durations {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.timeline-section .timeline-detail .durations span{
-  font-family: 'Trinos';
+.timeline-section .timeline-detail .durations span {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
@@ -306,36 +306,36 @@ footer .super-ultra img {
   align-items: center;
   text-align: center;
   margin-bottom: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.timeline-section .timeline-detail .timeline-divider{
-  background: linear-gradient(180deg, #60F6FF 35.79%, rgba(255, 84, 121, 0.03) 100%);
-  border: 1px solid #FFFFFF;
+.timeline-section .timeline-detail .timeline-divider {
+  background: linear-gradient(180deg, #60f6ff 35.79%, rgba(255, 84, 121, 0.03) 100%);
+  border: 1px solid #ffffff;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   padding: 5px;
   margin-bottom: 30px;
 }
 
-.timeline-section .timeline-detail .timeline-steps{
+.timeline-section .timeline-detail .timeline-steps {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.timeline-section .timeline-detail .timeline-steps .step{
-  font-family: 'Trinos';
+.timeline-section .timeline-detail .timeline-steps .step {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 26px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
 }
 
-.timeline-section .line-group{
-  border: 1px solid #FFFFFF;
+.timeline-section .line-group {
+  border: 1px solid #ffffff;
   width: 133px;
   transform: matrix(0, -1, -1, 0, 0, 0);
   position: absolute;
@@ -343,8 +343,8 @@ footer .super-ultra img {
   left: 200px;
 }
 
-.timeline-section .line-group-2{
-  border: 1px solid #FFFFFF;
+.timeline-section .line-group-2 {
+  border: 1px solid #ffffff;
   width: 133px;
   transform: matrix(0, -1, -1, 0, 0, 0);
   position: absolute;
@@ -352,23 +352,28 @@ footer .super-ultra img {
   right: 270px;
 }
 
-.app-section{
+.app-section {
   margin-top: 82px;
 }
 
-.app-section .title{
-  font-family: 'Trinos';
+.app-section .title {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 38px;
   line-height: 56px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 82px;
 }
 
-.app-section .app-card{
-  background: linear-gradient(279.35deg, rgba(215, 151, 188, 0.5) 9.35%, rgba(241, 218, 231, 0.24356) 69.49%, rgba(255, 255, 255, 0.1) 103.15%);
+.app-section .app-card {
+  background: linear-gradient(
+    279.35deg,
+    rgba(215, 151, 188, 0.5) 9.35%,
+    rgba(241, 218, 231, 0.24356) 69.49%,
+    rgba(255, 255, 255, 0.1) 103.15%
+  );
   border-radius: 40px;
   padding: 18px 45px 0px 0px;
   display: flex;
@@ -376,37 +381,37 @@ footer .super-ultra img {
   justify-content: space-between;
 }
 
-.app-section .app-card .detail{
+.app-section .app-card .detail {
   margin-left: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.app-section .app-card .detail .header-title{
-  font-family: 'Trinos';
+.app-section .app-card .detail .header-title {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 26px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 31px;
 }
 
-.app-section .app-card .detail .stores{
+.app-section .app-card .detail .stores {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.app-section .app-card .detail .stores .others{
+.app-section .app-card .detail .stores .others {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 33px;
 }
 
-.app-section .app-card .detail .stores .others img{
+.app-section .app-card .detail .stores .others img {
   /* margin-bottom: 30px; */
 }
 /* Project Listing */
