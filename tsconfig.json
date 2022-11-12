@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -25,5 +25,5 @@
   },
   "typeRoots": ["./node_modules/@types"],
   "include": ["src", "types/index.d.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist"]
 }

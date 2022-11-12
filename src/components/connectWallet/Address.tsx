@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { OverlayTrigger, Placeholder, Tooltip } from "react-bootstrap";
 
@@ -20,7 +20,7 @@ const Address: React.FC<AddressProps> = (props) => {
       }, 10000);
   }, [isClicked]);
 
-  if (address === undefined) return <Placeholder paragraph={{ rows: 1, width: "100%" }} title={false} active />;
+  if (address === undefined) return <Placeholder xs={7} animation="glow" />;
 
   const Copy = () => (
     <OverlayTrigger key="top" placement="top" overlay={<Tooltip>Copy Address!</Tooltip>}>

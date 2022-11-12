@@ -1,4 +1,4 @@
-import { Chain } from "wagmi";
+import { Chain } from "../../types";
 
 export const ethereum: Chain = {
   id: 1,
@@ -15,7 +15,8 @@ export const ethereum: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://etherscan.io/" }
   },
-  testnet: false
+  testnet: false,
+  logo: "assets/images/chains/ethereum_Logo.png"
 };
 
 export const goerli: Chain = {
@@ -33,7 +34,8 @@ export const goerli: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://goerli.etherscan.io" }
   },
-  testnet: true
+  testnet: true,
+  logo: "assets/images/chains/ethereum_Logo.png"
 };
 
 export const polygon: Chain = {
@@ -51,7 +53,8 @@ export const polygon: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://polygonscan.com/" }
   },
-  testnet: false
+  testnet: false,
+  logo: "assets/images/chains/polygon_logo.png"
 };
 
 export const mumbai: Chain = {
@@ -69,12 +72,13 @@ export const mumbai: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://mumbai.polygonscan.com/" }
   },
-  testnet: true
+  testnet: true,
+  logo: "assets/images/chains/polygon_logo.png"
 };
 
 export const fantom: Chain = {
   id: 250,
-  name: "Fantom Opera",
+  name: "Fantom",
   network: "Fantom Opera",
   nativeCurrency: {
     decimals: 18,
@@ -87,7 +91,8 @@ export const fantom: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://ftmscan.com/" }
   },
-  testnet: false
+  testnet: false,
+  logo: "assets/images/chains/fantom_Logo.png"
 };
 
 export const fantom_testnet: Chain = {
@@ -105,12 +110,13 @@ export const fantom_testnet: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://testnet.ftmscan.com/" }
   },
-  testnet: true
+  testnet: true,
+  logo: "assets/images/chains/fantom_Logo.png"
 };
 
 export const bnb_mainnet: Chain = {
   id: 56,
-  name: "Binance Chain",
+  name: "BNB Chain",
   network: "Bnb mainnet",
   nativeCurrency: {
     decimals: 18,
@@ -123,12 +129,13 @@ export const bnb_mainnet: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://bscscan.com/" }
   },
-  testnet: false
+  testnet: false,
+  logo: "assets/images/chains/bsc_Logo.png"
 };
 
 export const bnb_testnet: Chain = {
   id: 97,
-  name: "Binance testnet",
+  name: "BNB testnet",
   network: "Bnb testnet",
   nativeCurrency: {
     decimals: 18,
@@ -141,10 +148,11 @@ export const bnb_testnet: Chain = {
   blockExplorers: {
     default: { name: "", url: "https://testnet.bscscan.com/" }
   },
-  testnet: true
+  testnet: true,
+  logo: "assets/images/chains/bsc_Logo.png"
 };
 
-export const chains: Chain[] = [ethereum, goerli, polygon, mumbai, fantom, fantom_testnet, bnb_mainnet, bnb_testnet];
+export const chains: Chain[] = [polygon, mumbai, bnb_mainnet, bnb_testnet];
 
 export const getExplorer = (chainId: number): string | undefined => {
   const current = chains.find((chain) => chain.id === chainId);

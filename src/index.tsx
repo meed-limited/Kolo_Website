@@ -10,7 +10,6 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { chains } from "./web3/network";
 
 const { provider, webSocketProvider } = configureChains(
@@ -55,8 +54,3 @@ root.render(
     </WagmiConfig>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
