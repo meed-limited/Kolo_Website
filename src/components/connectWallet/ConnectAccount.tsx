@@ -40,7 +40,10 @@ const ConnectAccount = () => {
     <>
       {!isConnected ? (
         <>
-          <Button onClick={handleClick}>
+          <Button
+            onClick={handleClick}
+            style={{ width: "270px", backgroundImage: `url("./assets/images/btn_frame_large.png")` }}
+          >
             <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
           </Button>
           <ConnectModal
