@@ -59,7 +59,7 @@ const SubmissionForm = () => {
           ProjectCardImage: projectCardImage,
           ProjectTagLine: value.ProjectTagLine,
           AmountRequired: value.AmountRequired,
-          DesiredCurrency: "USDC",
+          DesiredCurrency: selectedCurrency ? selectedCurrency : "USDC",
           OrganizationName: value.OrganizationName,
           OrganizationWebsite: value.OrganizationWebsite,
           YoutubeLink: value.YoutubeLink,
