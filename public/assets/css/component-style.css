@@ -125,17 +125,21 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
+  gap: 10px;
   /* top: 5px; */
 }
 
 .btn-primary {
   background-color: transparent !important;
+  width: 182px;
+  height: 50px;
   border: none !important;
-  background-image: url(../images/btn-primary.svg);
+  /* background-image: url(../images/btn-primary.svg); */
+  background-image: url(../images/btn_frame.png);
   background-position: center;
   /* background-size: cover; */
   background-repeat: no-repeat;
-  padding: 10px 35px !important;
+  padding-top: 10px !important;
 }
 
 .btn-primary span {
