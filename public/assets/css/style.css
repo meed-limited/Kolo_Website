@@ -273,6 +273,106 @@ footer .super-ultra img {
   width: 387px;
 }
 
+.timeline-section{
+  position: relative;
+  max-width: 980px;
+  width: 100%;
+}
+
+.timeline-section .title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 56px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 38px;
+}
+
+.timeline-section .timeline-detail .durations{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.timeline-section .timeline-detail .durations span{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.timeline-section .timeline-detail .timeline-divider{
+  background: linear-gradient(180deg, #60F6FF 35.79%, rgba(255, 84, 121, 0.03) 100%);
+  border: 1px solid #FFFFFF;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.timeline-section .timeline-detail .timeline-steps{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timeline-section .timeline-detail .timeline-steps .step{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.timeline-section .line-group{
+  border: 1px solid #FFFFFF;
+  width: 133px;
+  transform: matrix(0, -1, -1, 0, 0, 0);
+  position: absolute;
+  bottom: 40px;
+  left: 200px;
+}
+
+.timeline-section .line-group-2{
+  border: 1px solid #FFFFFF;
+  width: 133px;
+  transform: matrix(0, -1, -1, 0, 0, 0);
+  position: absolute;
+  bottom: 40px;
+  right: 270px;
+}
+
+.app-section{
+  margin-top: 82px;
+}
+
+.app-section .title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 56px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 82px;
+}
+
+.app-section .app-card{
+  background: linear-gradient(279.35deg, rgba(215, 151, 188, 0.5) 9.35%, rgba(241, 218, 231, 0.24356) 69.49%, rgba(255, 255, 255, 0.1) 103.15%);
+  border-radius: 40px;
+  padding: 3px s45px 0px 0px;
+}
+
 /* Project Listing */
 .project-wrapper {
   margin-top: 10px;
