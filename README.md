@@ -20,7 +20,7 @@ KOLO is a DAO Micro-funding gamefi platform using blockchain technology to redis
 
 ## Build with
 
-- [Javascript](https://www.javascript.com/)
+- [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 
 ## Note
