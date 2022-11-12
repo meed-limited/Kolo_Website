@@ -370,9 +370,45 @@ footer .super-ultra img {
 .app-section .app-card{
   background: linear-gradient(279.35deg, rgba(215, 151, 188, 0.5) 9.35%, rgba(241, 218, 231, 0.24356) 69.49%, rgba(255, 255, 255, 0.1) 103.15%);
   border-radius: 40px;
-  padding: 3px s45px 0px 0px;
+  padding: 18px 45px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
+.app-section .app-card .detail{
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-section .app-card .detail .header-title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 31px;
+}
+
+.app-section .app-card .detail .stores{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.app-section .app-card .detail .stores .others{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 33px;
+}
+
+.app-section .app-card .detail .stores .others img{
+  /* margin-bottom: 30px; */
+}
 /* Project Listing */
 .project-wrapper {
   margin-top: 10px;

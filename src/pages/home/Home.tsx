@@ -74,7 +74,17 @@ const Home = () => {
         <div className="app-section">
           <div className="title">KOLO Now Open for < br/> Public submission</div>
           <div className="app-card">
-            <div className="title">Download the Kolo Play App to get started</div>
+            <img src="assets/images/app-image.png" />
+            <div className="detail">
+              <div className="header-title">Download the <br />Kolo Play App to <br />get started</div>
+              <div className="stores">
+                <img src="assets/images/barcode.png" />
+                <div className="others">
+                  <img src="assets/images/apple-ios.png" />
+                  <img src="assets/images/android.png" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
