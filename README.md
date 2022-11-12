@@ -1,4 +1,5 @@
-![Logo](./Frame4856.png)
+<div align="center">
+<img src="./Frame4856.png" width="500px"/>
 
 <br></br>
 
@@ -10,6 +11,7 @@
 
 # KOLO
 
+</div>
 KOLO is a DAO Micro-funding gamefi platform using blockchain technology to redistribute game revenue to various projects. Itis a platform that provides its users have easy access to invest and get in micro-funding
 
 ## Screenshots
@@ -57,8 +59,11 @@ As KOLO aims to democratize opportunities, any entrepreneurial projects such as 
 
 ## Built With
 
-- [![javascript]][javascript-url]
+- [![typescript]][typescript-url]
 - [![react]][react-url]
+- [![ethers.js]][ethers-url]
+- [![prettier]][prettier-url]
+- [![ESLint]][eslint-url]
 
 ## How to use
 
@@ -82,13 +87,13 @@ As KOLO aims to democratize opportunities, any entrepreneurial projects such as 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[javascript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [react]: https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge
-[unity]: https://img.shields.io/badge/Unity-FFFFFF?style=for-the-badge&logo=Unity&logoColor=61DAFB
-[unity-url]: https://unity.com/
-[c#]: https://img.shields.io/badge/CSharp-375BD2?style=for-the-badge&logo=CSharp&logoColor=239120
-[c#-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
-[javascript-url]: https://www.javascript.com/
 [react-url]: https://reactjs.org/
-[moralis]: https://img.shields.io/badge/Moralis-green?style=for-the-badge&logo=data:image/png;base64,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
-[moralis-url]: https://moralis.io/
+[typescript]: https://img.shields.io/badge/typescript_v4.8.4-375BD2?style=for-the-badge&logo=typescript&logoColor=61DAFB
+[typescript-url]: https://www.typescriptlang.org/
+[prettier]: https://img.shields.io/badge/Prettier-360D3A?style=for-the-badge&logo=Prettier&logoColor=61DAFB
+[prettier-url]: https://prettier.io/
+[eslint]: https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=61DAFB
+[eslint-url]: https://eslint.org/
+[ethers.js]: https://img.shields.io/badge/Ethers.js-2535a0?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAwCAYAAAC13uL+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALVSURBVGhD7ZjPSxdBGIf7Z7p1ky51CS928qQnu5SH9BIeAiFJEAwPVgfx5EkIBCEIgkAIBEEQBOlP2ny+MDDfl8/uvjM7U23s4SHNd2fez7y/ZvfBw8enzf/KJG6sTOLGyiSuBE+enzfPlr/OUH+vQVVxC4tnzebby+bw+K45Ovk1x9a7q+pCq4lbe30hRVkQ+ejpF7nGUKqII1pKSBvvD26qCCwubv3NTymgj+29a7neEIqKo4as0x8+3zbLa99n9Rfslla/zcRY29WXP+bWG0pRcfufbuecJT2VXQAxsT01WjI9i4kjOrGjWztX0s5in3uxcSHtcsgWRwq+uq8vmkHsHHxMjAAHYdcAIkn6rtxHOE5rL8niGMaqXmL60tHCmmodC+NFPd9GkjgagWd2kWrq+S52RQYoUg7OLY7T7RLGpjQI0jWnKcTXMw6R9UhvtZe3q7rE4azthAHmWo0BDNSZiqi3q7rE0cHsBpCTfqkggllp9/ZEzyVORa30wO3Cjgvw3Gh6xZEadmFOUtnWguhZH0DZxvSKU1eqPxm1gKo9ZRfTK07VG4KVrZec59VsVXYxf0VcTiOqIk6lJXNI2XphzdTrlG1qnrrPEjf0couwlLpVTY35qmxjesWpTuW98XdBmnmHP7cV64Mn8r3iQN3avY61Qd157olqxnkzxyVObZDTFCxEjw9EKgpLK/ptvfjFWV2BSrw183wQwL+g3g8DnjqLcYkD9c6VcopdkAXq/higLHLGj1scqPRE4NAIBjhAxgw1RTdFUO7aPJckDtjcvmcxg4bOvlRwHvHUJofO/vzOAYUDSRYHNADVnqkXvnewgXouheA88HkBqEnqjr09kc0SF0Akm7V9IsAZumFwrg1sQkOhUZEZ/IwIUpSoeOaaZZC4GDbnJHEGwcHZAAdg/w877CFESa2dSzFx/yKTuLEyiRsrk7ixMokbK5O4cXLa/Ab0j7hz1hk9uQAAAABJRU5ErkJggg==
+[ethers-url]: https://docs.ethers.io/v5/
