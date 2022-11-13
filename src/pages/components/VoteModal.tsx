@@ -47,8 +47,6 @@ const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, proj
           const objectId = sha256(address as string);
           const token = await getAuthToken(address as string, objectId);
 
-          // @Gbenga: projectId needed
-          // @Gbenga: Amount Input needed to compare if balance ? > vote amount
           if (Number(balance?.toString()) / 10 ** 18 >= value.Amount) {
             const res = await castVote(token.data.token, address as string, projectId, amoutToBN.toString(), identity);
             console.log("Response: ", res);

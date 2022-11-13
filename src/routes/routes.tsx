@@ -1,14 +1,15 @@
-import React from "react";
+import React, { lazy } from "react";
 
 import { Routes as Switch, Route } from "react-router-dom";
 
-import Home from "../pages/home/Home";
-import ProjectDetails from "../pages/projectDetail/ProjectDetails";
-import ProjectList from "../pages/projectList/ProjectList";
-import SubmissionForm from "../pages/submissionForm/SubmissionForm";
-import SubmitSuccess from "../pages/submitSuccess/SubmitSuccess";
-import SubmittedProject from "../pages/submittedProject/SubmittedProject";
 import ProtectedRoute from "./ProtectedRoute";
+
+const Home = lazy(() => import("../pages/home/Home"));
+const ProjectDetails = lazy(() => import("../pages/projectDetail/ProjectDetails"));
+const ProjectList = lazy(() => import("../pages/projectList/ProjectList"));
+const SubmissionForm = lazy(() => import("../pages/submissionForm/SubmissionForm"));
+const SubmitSuccess = lazy(() => import("../pages/submitSuccess/SubmitSuccess"));
+const SubmittedProject = lazy(() => import("../pages/submittedProject/SubmittedProject"));
 
 const Routes = () => {
   return (

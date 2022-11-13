@@ -1577,11 +1577,6 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@hookstate/core@^4.0.0-rc21":
-  version "4.0.0-rc21"
-  resolved "https://registry.yarnpkg.com/@hookstate/core/-/core-4.0.0-rc21.tgz#5c7c8e1ec02d7a2eea148edf88b9c8aa3baf0fa8"
-  integrity sha512-aAiF537i9a54OlWzA/EtOa1l4bJMmpmJ4Fb/ZV8R30xD6jGMCGbCxHcb6SWIqO92T/w8dFXyl5XQbQ8reFpQrA==
-
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.7.tgz#38aec044c6c828f6ed51d5d7ae3d9b9faf6dbb0f"

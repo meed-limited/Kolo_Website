@@ -92,11 +92,12 @@ export const isAcceptingProposals = async (
  *******************************************/
 export const isPollOpened = async (
   provider: ethers.providers.Web3Provider | undefined
-): Promise<string | undefined> => {
+): Promise<boolean | undefined> => {
   const ballotInstance = new ethers.Contract(ballot, Ballot_ABI, provider);
 
   try {
     const opened = await ballotInstance.isPollOpened();
+    console.log(opened);
     return opened;
   } catch (error) {
     console.log(error);

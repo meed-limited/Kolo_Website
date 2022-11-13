@@ -40,36 +40,6 @@ const ProjectList = () => {
               />
             </div>
           ))}
-          {/* <div onClick={() => navigate("/project-detail")}>
-            <ListBox
-              imagePath="assets/images/pl4.png"
-              title="Planet Giant"
-              detail="Planet Giant is a Third person Shooter taking place on a medieval multiverse. Players can control a ......                    "
-              objective="00000000"
-              backer="00000000"
-              rank={1}
-            />
-          </div>
-          <div onClick={() => navigate("/project-detail")}>
-            <ListBox
-              imagePath="assets/images/pl1.png"
-              title="Gachapon!"
-              detail="We based Gachapon on the vending machines popular in Japan and other Asian countries that dispense capsules with toys or other goodi......"
-              objective="00000000"
-              backer="00000000"
-              rank={2}
-            />
-          </div>
-          <div onClick={() => navigate("/project-detail")}>
-            <ListBox
-              imagePath="assets/images/pl2.png"
-              title="Get the Cats"
-              detail="A One-of-a-Kind Augmented Reality Game where you get cats......                    "
-              objective="00000000"
-              backer="00000000"
-              rank={3}
-            />
-          </div> */}
         </Scrollbars>
       </div>
     </Frame>
