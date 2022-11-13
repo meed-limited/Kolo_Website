@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Modal } from "react-bootstrap";
 import { Connector, useConnect } from "wagmi";
 
-import useStateManager from "../../hooks/useStateManager";
+import { useUserData } from "../../context/UserContextProvider";
 import IMAGES from "./walletIcons";
 
 interface ConnectModalProps {
@@ -14,7 +14,7 @@ interface ConnectModalProps {
 
 const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen }) => {
   const { connect, connectors, isLoading, pendingConnector } = useConnect();
-  const globalState = useStateManager();
+  const { isConnectModalAnimation } = useUserData();
 
   const getConnectorImage = (connector: Connector) => {
     const data = IMAGES.find((item) => item.name.toLowerCase() === connector.name.toLowerCase());
@@ -37,13 +37,13 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
       <Modal.Body>
         <motion.div
           className="modal-wrapper"
-          initial={globalState.showConnectModalAnimation.get() ? { y: 0 } : { y: -400 }}
+          initial={isConnectModalAnimation ? { y: 0 } : { y: -400 }}
           animate={{ y: -400 }}
           transition={{ duration: 1.5, delay: 0.5 }}
         >
           <motion.div
             className="connect-intro"
-            initial={globalState.showConnectModalAnimation.get() ? { opacity: 1 } : { opacity: 0 }}
+            initial={isConnectModalAnimation ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1.5, delay: 0.5 }}
           >
@@ -54,7 +54,7 @@ const ConnectModal: React.FC<ConnectModalProps> = ({ isModalOpen, setIsModalOpen
           </motion.div>
           <motion.div
             className="wallets"
-            initial={globalState.showConnectModalAnimation.get() ? { opacity: 0 } : { opacity: 1 }}
+            initial={isConnectModalAnimation ? { opacity: 0 } : { opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
           >

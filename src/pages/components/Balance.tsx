@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 import { Button } from "react-bootstrap";
-import { useAccount, useProvider } from "wagmi";
+import { useAccount } from "wagmi";
 
-import { getTokenBalance } from "../../web3/contractCall";
+import { useUserData } from "../../context/UserContextProvider";
 
 const Balance = () => {
-  const { isConnected, address } = useAccount();
-  const provider = useProvider();
-  const [balance, setBalance] = useState<string>("");
+  const { address } = useAccount();
+  const { tokenBalance } = useUserData();
 
-  useEffect(() => {
-    const fetch = async () => {
-      const res = await getTokenBalance(provider, address as string);
-      const bal = Number(res?.toString()) / 10 ** 18;
-      setBalance(Number.isNaN(bal) ? "0000" : bal.toString());
-    };
+  const balance = useMemo(() => (tokenBalance ? tokenBalance : "0000"), [tokenBalance]);
 
-    if (isConnected && provider) {
-      fetch();
-    }
-  }, [isConnected]);
   return (
     <>
-      {isConnected && (
-        <Button className="bal-btn">
+      {address && (
+        <Button className="bal-btn" style={{ cursor: "default" }}>
           <img src="assets/images/Kol.png" />
           <div className="detail">
             <span className="title">Balance</span>

@@ -3,7 +3,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useAccount } from "wagmi";
 
-import useStateManager from "../hooks/useStateManager";
+import { useUserData } from "../context/UserContextProvider";
 
 interface ProtectedRouteProps {
   children: any;
@@ -11,13 +11,11 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }: ProtectedRouteProps) => {
   const { isConnected } = useAccount();
+  const { setIsConnectModalOpen, setIsSubmissionModalOpen } = useUserData();
 
-  const globalState = useStateManager();
-  const isAuth = globalState.isAuth.get();
-  console.log(isAuth);
   if (!isConnected) {
-    globalState.showConnectModalAnimation.set(true);
-    globalState.openConnectModal.set(true);
+    setIsSubmissionModalOpen(true);
+    setIsConnectModalOpen(true);
     return <Navigate to="/project-list" replace />;
   }
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useAccount, useDisconnect } from "wagmi";
 
-import useStateManager from "../../hooks/useStateManager";
+import { useUserData } from "../../context/UserContextProvider";
 import { useWindowWidthAndHeight } from "../../hooks/useWindowWidthAndHeight";
 import { getEllipsisTxt } from "../../utils/formatters";
 import ConnectModal from "./ConnectModal";
@@ -15,23 +15,19 @@ const ConnectAccount = () => {
   const { address, connector: isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const { isMobile } = useWindowWidthAndHeight();
-  // const [isConnectModalOpen, setIsConnectModalOpen] = useState<boolean>(false);
   const [isDiconnectModalOpen, setIsDisconnectModalOpen] = useState<boolean>(false);
-  const globalState = useStateManager();
+  const { isConnectModalOpen, setIsConnectModalOpen, setIsConnectModalAnimation } = useUserData();
 
   const handleClick = () => {
-    // if (isConnectModalOpen) setIsConnectModalOpen(false);
-    // setIsConnectModalOpen(true);
-    globalState.showConnectModalAnimation.set(false);
-    if (globalState.openConnectModal.get()) globalState.openConnectModal.set(false);
-    globalState.openConnectModal.set(true);
+    setIsConnectModalAnimation(false);
+    if (isConnectModalOpen) setIsConnectModalOpen(false);
+    setIsConnectModalOpen(true);
   };
 
   const disconnectWallet = async () => {
     disconnect();
     setIsDisconnectModalOpen(false);
-    // setIsConnectModalOpen(false);
-    globalState.openConnectModal.set(false);
+    setIsConnectModalOpen(false);
     localStorage.removeItem("connectorId");
     window.location.reload();
   };
@@ -46,10 +42,7 @@ const ConnectAccount = () => {
           >
             <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
           </Button>
-          <ConnectModal
-            isModalOpen={globalState.openConnectModal.get()}
-            setIsModalOpen={globalState.openConnectModal.set}
-          />
+          <ConnectModal isModalOpen={isConnectModalOpen} setIsModalOpen={setIsConnectModalOpen} />
           <br />
         </>
       ) : (

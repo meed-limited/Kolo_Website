@@ -6,7 +6,7 @@ import { useAccount } from "wagmi";
 
 import ChainSelector from "../../components/chain/ChainSelector";
 import ConnectAccount from "../../components/connectWallet/ConnectAccount";
-import useStateManager from "../../hooks/useStateManager";
+import { useUserData } from "../../context/UserContextProvider";
 import Balance from "./Balance";
 
 interface HeaderProps {
@@ -18,21 +18,17 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const globalState = useStateManager();
+  const { setIsConnectModalOpen } = useUserData();
 
   const goToApp = () => {
     navigate("/project-list");
   };
 
-  // const openConnectWallet = () => {
-  //   globalState.openConnectModal.set(true);
-  // };
-
   const goToSubmissionForm = () => {
     if (isConnected) {
       navigate("/submission-form");
     } else {
-      globalState.openConnectModal.set(true);
+      setIsConnectModalOpen(true);
     }
   };
 
@@ -88,9 +84,6 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
             <ChainSelector />
             <Balance />
             <ConnectAccount />
-            {/* <Button onClick={openConnectWallet}>
-              <img src="assets/images/link.svg" /> <span>Connect Wallet</span>
-            </Button> */}
           </div>
         )}
       </header>

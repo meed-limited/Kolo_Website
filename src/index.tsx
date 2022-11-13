@@ -10,6 +10,7 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 import App from "./App";
+import { UserDataProvider } from "./context/UserContextProvider";
 import { chains } from "./web3/network";
 
 const { provider, webSocketProvider } = configureChains(
@@ -50,7 +51,9 @@ const root = createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <WagmiConfig client={client}>
-      <App />
+      <UserDataProvider>
+        <App />
+      </UserDataProvider>
     </WagmiConfig>
   </React.StrictMode>
 );

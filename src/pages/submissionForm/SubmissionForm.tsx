@@ -4,9 +4,10 @@ import { ethers } from "ethers";
 import { Formik } from "formik";
 import { Button, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useAccount, useNetwork, useSigner } from "wagmi";
+import { useSigner } from "wagmi";
 import * as Yup from "yup";
 
+import { useUserData } from "../../context/UserContextProvider";
 import { submitProjectAPI } from "../../utils/API_call";
 import { AMOUNTBUTTONS } from "../../utils/data";
 import { convertFileToBase64String } from "../../utils/functions";
@@ -15,9 +16,8 @@ import Frame from "../components/Frame";
 
 const SubmissionForm = () => {
   const uploadBtnRef = useRef<HTMLInputElement | null>(null);
-  const { address } = useAccount();
+  const { address, chain } = useUserData();
   const { data: signer } = useSigner();
-  const { chain } = useNetwork();
   const [showImgInfo, setShowImgInfo] = useState<boolean>(false);
   const [youtubeInfo, setYoutubeInfo] = useState<boolean>(false);
   const [selectedCurrency, setSelectedCurrency] = useState<string>("");
