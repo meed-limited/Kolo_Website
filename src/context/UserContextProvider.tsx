@@ -29,13 +29,6 @@ const UserDataProvider: React.FC<Props> = ({ children }) => {
     setIsPollOpen(statut);
   };
 
-  useEffect(() => {
-    getCurrentPhase();
-
-    return;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   /* Get user's data:
    ********************/
   const getKolBalance = async () => {
@@ -46,6 +39,7 @@ const UserDataProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     if (address) {
       getKolBalance();
+      getCurrentPhase();
     }
     return;
     // eslint-disable-next-line react-hooks/exhaustive-deps
