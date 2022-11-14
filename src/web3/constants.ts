@@ -14,7 +14,6 @@ export const BALLOT_CONTRACT = "";
 
 // Contract Addresses in Development
 export const TOKEN_TEST = "0x629A92d7940d511F0bEb1495418d0cF6B5Cf5f4e";
-// export const BALLOT_CONTRACT_TEST = "0x566489364928ef33C02A2c2419937673968c7EEC";
 export const BALLOT_CONTRACT_TEST = "0x5C9d454995570d37D5354575a4De0Cd75583f157";
 
 /* Getter functions:

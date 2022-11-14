@@ -656,7 +656,7 @@ footer .super-ultra img {
 
 .product-detail .content .project-body .detail-breakdown .breakdown2 .org-btns button span img {
   position: absolute;
-  left: 20px;
+  left: 10px;
 }
 
 .product-detail .content .project-body .detail-breakdown .obj-backer {
@@ -1120,6 +1120,13 @@ footer .super-ultra img {
   color: #969696;
 }
 
+
+.errorMsg {
+  max-width: 350px;
+  color: #f21e08;
+  font-size: 20px;
+  font-weight: 500;
+}
 /* User Profile */
 .user-details{
   display: flex;
