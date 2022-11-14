@@ -10,6 +10,7 @@ const ProjectList = lazy(() => import("../pages/projectList/ProjectList"));
 const SubmissionForm = lazy(() => import("../pages/submissionForm/SubmissionForm"));
 const SubmitSuccess = lazy(() => import("../pages/submitSuccess/SubmitSuccess"));
 const SubmittedProject = lazy(() => import("../pages/submittedProject/SubmittedProject"));
+const UserProfile = lazy(() => import("../pages/userProfile/UserProfile"))
 
 const Routes = () => {
   return (
@@ -45,6 +46,14 @@ const Routes = () => {
         element={
           <ProtectedRoute>
             <SubmittedProject />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <UserProfile />
           </ProtectedRoute>
         }
       />

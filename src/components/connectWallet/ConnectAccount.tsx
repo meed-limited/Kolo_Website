@@ -1,13 +1,16 @@
 import { useState } from "react";
 
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useAccount, useDisconnect } from "wagmi";
+
 
 import { useUserData } from "../../context/UserContextProvider";
 import { useWindowWidthAndHeight } from "../../hooks/useWindowWidthAndHeight";
 import { getEllipsisTxt } from "../../utils/formatters";
 import ConnectModal from "./ConnectModal";
 import DisconnectModal from "./DisconnectModal";
+
 
 import "./style.css";
 
@@ -17,6 +20,9 @@ const ConnectAccount = () => {
   const { isMobile } = useWindowWidthAndHeight();
   const [isDiconnectModalOpen, setIsDisconnectModalOpen] = useState<boolean>(false);
   const { isConnectModalOpen, setIsConnectModalOpen, setIsConnectModalAnimation } = useUserData();
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const navigate = useNavigate()
+
 
   const handleClick = () => {
     setIsConnectModalAnimation(false);
@@ -47,7 +53,11 @@ const ConnectAccount = () => {
         </>
       ) : (
         <>
-          <Button onClick={() => setIsDisconnectModalOpen(true)}>
+          <Button 
+            onClick={() => setIsDisconnectModalOpen(true)} 
+            onMouseEnter={() => setShowDropdown(true)} 
+            onMouseLeave={() => setShowDropdown(false)}
+          >
             {address && typeof address === "string" && (
               <p className="connected-account-text">
                 <svg
@@ -64,7 +74,16 @@ const ConnectAccount = () => {
               </p>
             )}
           </Button>
-
+          {showDropdown &&
+            <div 
+              className="dropdown-wrapper"
+              onMouseEnter={() => setShowDropdown(true)} 
+              onMouseLeave={() => setShowDropdown(false)}
+            >
+              <Button onClick={() => navigate("/profile")}><span className="iconify" data-icon="mdi:user"></span> {" "} Profile</Button>
+            </div>
+          }
+          
           <DisconnectModal
             address={address}
             isModalOpen={isDiconnectModalOpen}

@@ -498,3 +498,115 @@
 .bal-btn .detail .value {
   font-size: 12px !important;
 }
+
+
+.dropdown-wrapper{
+  position: absolute;
+  top: 50px;
+  right: -10px;
+  padding: 10px;
+  background-color: #26357c;
+  z-index: 1000;
+}
+
+.dropdown-wrapper button{
+  margin: 0 !important;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 27px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev-list-box{
+  margin-bottom: 23px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  background: linear-gradient(253deg, #8DAFFF 0%, rgba(109, 109, 109, 0.05) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12.5px);
+  border-radius: 20px;
+  padding: 27px 22px;
+}
+
+.prev-list-box .image-container{
+  margin-right: 26px;
+  border-radius: 12px;
+}
+
+.prev-list-box .image-container img{
+  width: 216px;
+}
+
+.prev-list-box .prev-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.prev-list-box .prev-content .prev-title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.prev-list-box .prev-content .obj-backer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.prev-list-box .prev-content .obj-backer .container .key{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 6px;
+  color: #FFFFFF;
+}
+
+.prev-list-box .prev-content .obj-backer .container .value span{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.prev-list-box .expiry-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.prev-list-box .expiry-container .time{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.prev-list-box .expiry-container .update{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: right;
+  color: #FFFFFF;
+}

@@ -336,7 +336,7 @@ footer .super-ultra img {
 }
 
 .timeline-section .line-group {
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff8f;
   width: 133px;
   transform: matrix(0, -1, -1, 0, 0, 0);
   position: absolute;
@@ -345,7 +345,7 @@ footer .super-ultra img {
 }
 
 .timeline-section .line-group-2 {
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff8f;
   width: 133px;
   transform: matrix(0, -1, -1, 0, 0, 0);
   position: absolute;
@@ -1118,4 +1118,211 @@ footer .super-ultra img {
   align-items: center;
   text-align: center;
   color: #969696;
+}
+
+/* User Profile */
+.user-details{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.user-details .user-content-wrapper{
+  /* margin-right: 100px; */
+}
+
+.user-details .user-content-wrapper .balance{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+}
+
+.user-details .user-content-wrapper .user-frame{
+  background: url(../images/frame.svg);
+  background-position: center;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  width: 430px;
+  height: 277px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-details .user-content-wrapper .vote-detail{
+  padding: 10px 20px !important;
+  
+}
+
+.user-details .user-content-wrapper .vote-detail img{
+  margin-bottom: 20px;
+}
+
+.user-details .user-content-wrapper .vote-detail .divider,
+.user-details .user-content-wrapper .balance-detail .divider{
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);;
+  margin-bottom: 8px;
+}
+
+.user-details .user-content-wrapper .vote-detail .vote{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user-details .user-content-wrapper .vote-detail .vote .vote-content .period{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.user-details .user-content-wrapper .vote-detail .vote .vote-content  .vote-prefix{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+
+}
+
+.user-details .user-content-wrapper .vote-detail .vote .vote-content .project-name{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 39px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.user-details .user-content-wrapper .balance-detail{
+  padding: 1px 10px 10px 3px;
+}
+
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section{
+  display: flex;
+  flex-direction: row;
+}
+
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .icon{
+  margin-right: 5px;
+}
+
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper{
+  margin-bottom: 17px;
+}
+
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+}
+
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .address{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section{
+  display: flex;
+  flex-direction: row;
+}
+
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .icon{
+  margin-right: 29px;
+}
+
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .balance{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .kol-currency{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point span{
+  color: #60F6FF;
+}
+
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .earn{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.prev-vote-section{
+  margin-top: 20px;
+}
+
+.prev-vote-section .title{
+  font-family: 'Trinos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 44px;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+}
+
+.prev-vote-section .prev-projects{
+  display: flex;
+  flex-direction: column;
 }
