@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ethers } from "ethers";
 import { sha256 } from "ethers/lib/utils";
 import { Formik } from "formik";
 import { Button, Form, Spinner } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import { useAccount, useProvider, useSigner } from "wagmi";
+import { useSigner } from "wagmi";
 import * as Yup from "yup";
 
 import { Identity, VoteForm } from "../../../types";
+import { useUserData } from "../../context/UserContextProvider";
 import { castVote, getAuthToken } from "../../utils/API_call";
-import { getTokenBalance, signApproval } from "../../web3/contractCall";
+import { signApproval } from "../../web3/contractCall";
 
 interface VoteModalProps {
   isModalOpen: boolean;
@@ -19,19 +20,24 @@ interface VoteModalProps {
 }
 
 const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, projectId }: VoteModalProps) => {
-  const { address } = useAccount();
+  const { address, tokenBalance } = useUserData();
   const { data: signer } = useSigner();
-  const provider = useProvider();
+  const [error, setError] = useState<string>("");
 
   const initialValues: VoteForm = {
     Amount: 0
   };
 
   const onSubmit = async (value: VoteForm) => {
-    if (provider && signer) {
+    setError("");
+    if (signer) {
       try {
-        const balance = await getTokenBalance(provider, address as string);
         const amoutToBN = ethers.utils.parseUnits(value.Amount.toString(), 18);
+
+        if (Number(tokenBalance < value.Amount)) {
+          setError("Insufficient balance.");
+          return;
+        }
 
         const data: any = await signApproval(signer, address as string, amoutToBN.toString());
         if (data.success) {
@@ -47,13 +53,10 @@ const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, proj
           const objectId = sha256(address as string);
           const token = await getAuthToken(address as string, objectId);
 
-          if (Number(balance?.toString()) / 10 ** 18 >= value.Amount) {
-            const res = await castVote(token.data.token, address as string, projectId, amoutToBN.toString(), identity);
-            console.log("Response: ", res);
-          } else {
-            // Display an error
-          }
-        }
+          const res = await castVote(token.data.token, address as string, projectId, amoutToBN.toString(), identity);
+          console.log("Response: ", res);
+          if (!res.success) setError(res.message);
+        } else setError(data.message);
       } catch (error) {
         console.log(error);
       }
@@ -96,6 +99,7 @@ const VoteModal: React.FC<VoteModalProps> = ({ isModalOpen, setIsModalOpen, proj
                   </Form>
                 )}
               </Formik>
+              {error && <span className="errorMsg">{error}</span>}
             </div>
           </div>
         </div>
