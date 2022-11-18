@@ -1514,3 +1514,130 @@ footer .super-ultra img {
     font-size: 35px;
   }
 }
+
+@media (max-width: 500px) {
+  .timeline-section .timeline-detail .durations span {
+    font-size: 12px;
+  }
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 10px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 70px;
+  }
+  .timeline-section .line-group {
+    left: 50px;
+  }
+  .app-section .app-card img {
+    width: 150px;
+  }
+
+  .app-section .app-card .detail .header-title {
+    font-size: 12px;
+  }
+
+  .app-section .app-card .detail .stores img {
+    width: 75px;
+  }
+
+  .landing-footer .footer-icons a,
+  footer .super-ultra span,
+  .landing-footer .footer-links a {
+    font-size: 12px;
+  }
+
+  .app-section .title,
+  .timeline-section .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+  }
+
+  footer .super-ultra img {
+    width: 50px;
+  }
+}
+
+@media (max-width: 425px) {
+  .landing {
+    margin-top: 40px;
+  }
+  .landing .title {
+    font-size: 25px;
+    line-height: 35px;
+  }
+  .landing .sub-title,
+  .landing-detail .sub-title {
+    font-size: 15px;
+    line-height: 29px;
+  }
+  .landing img {
+    width: 90%;
+    position: relative;
+    left: 50px;
+  }
+  .landing-detail .title {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 35px;
+  }
+  .landing-detail-wrapper .detail .key {
+    font-size: 18px;
+  }
+  .landing-detail-wrapper .detail .value {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .landing-detail-wrapper img {
+    width: 100px;
+  }
+
+  .timeline-section .timeline-detail .durations span {
+    font-size: 10px;
+  }
+
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 8px;
+  }
+
+  .timeline-section .line-group {
+    left: 30px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 50px;
+  }
+  .app-section .title {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .app-section .app-card .detail .header-title {
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+  .landing-footer .footer-icons a,
+  footer .super-ultra span,
+  .landing-footer .footer-links a {
+    font-size: 10px;
+  }
+
+  .landing-footer .footer-icons a,
+  .landing-footer .footer-links a {
+    margin-right: 10px;
+  }
+
+  footer .super-ultra img {
+    width: 40px;
+  }
+
+  footer .super-ultra span {
+    margin-right: 10px;
+  }
+
+  .landing-footer .footer-icons a,
+  footer .super-ultra img {
+    /* position: relative;
+    top: 10px; */
+  }
+}
