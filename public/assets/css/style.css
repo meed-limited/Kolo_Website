@@ -69,6 +69,10 @@ header {
   top: 0px;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 .icons-section span {
   font-family: "Open Sans";
   font-style: normal;
@@ -1120,36 +1124,36 @@ footer .super-ultra img {
   color: #969696;
 }
 
-
 .errorMsg {
   max-width: 350px;
   color: #f21e08;
   font-size: 20px;
   font-weight: 500;
 }
+
 /* User Profile */
-.user-details{
+.user-details {
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
   justify-content: space-between;
 }
 
-.user-details .user-content-wrapper{
+.user-details .user-content-wrapper {
   /* margin-right: 100px; */
 }
 
-.user-details .user-content-wrapper .balance{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
   line-height: 40px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 14px;
 }
 
-.user-details .user-content-wrapper .user-frame{
+.user-details .user-content-wrapper .user-frame {
   background: url(../images/frame.svg);
   background-position: center;
   /* background-size: cover; */
@@ -1162,90 +1166,88 @@ footer .super-ultra img {
   align-items: center;
 }
 
-.user-details .user-content-wrapper .vote-detail{
+.user-details .user-content-wrapper .vote-detail {
   padding: 10px 20px !important;
-  
 }
 
-.user-details .user-content-wrapper .vote-detail img{
+.user-details .user-content-wrapper .vote-detail img {
   margin-bottom: 20px;
 }
 
 .user-details .user-content-wrapper .vote-detail .divider,
-.user-details .user-content-wrapper .balance-detail .divider{
+.user-details .user-content-wrapper .balance-detail .divider {
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 8px;
 }
 
-.user-details .user-content-wrapper .vote-detail .vote{
+.user-details .user-content-wrapper .vote-detail .vote {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
 
-.user-details .user-content-wrapper .vote-detail .vote .vote-content .period{
-  font-family: 'Open Sans';
+.user-details .user-content-wrapper .vote-detail .vote .vote-content .period {
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 6px;
 }
 
-.user-details .user-content-wrapper .vote-detail .vote .vote-content  .vote-prefix{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .vote-detail .vote .vote-content .vote-prefix {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 12px;
-
 }
 
-.user-details .user-content-wrapper .vote-detail .vote .vote-content .project-name{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .vote-detail .vote .vote-content .project-name {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 35px;
   line-height: 39px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.user-details .user-content-wrapper .balance-detail{
+.user-details .user-content-wrapper .balance-detail {
   padding: 1px 10px 10px 3px;
 }
 
-.user-details .user-content-wrapper .balance-detail .connected-wallet-section{
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section {
   display: flex;
   flex-direction: row;
 }
 
-.user-details .user-content-wrapper .balance-detail .connected-wallet-section .icon{
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .icon {
   margin-right: 5px;
 }
 
-.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper{
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper {
   margin-bottom: 17px;
 }
 
-.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .title{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .title {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .address{
-  font-family: 'Open Sans';
+.user-details .user-content-wrapper .balance-detail .connected-wallet-section .details-wrapper .address {
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -1253,83 +1255,262 @@ footer .super-ultra img {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.user-details .user-content-wrapper .balance-detail .kol-wallet-section{
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section {
   display: flex;
   flex-direction: row;
 }
 
-.user-details .user-content-wrapper .balance-detail .kol-wallet-section .icon{
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .icon {
   margin-right: 29px;
 }
 
-.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details{
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 27px;
 }
 
-.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .balance{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .balance {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .kol-currency{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance-detail .kol-wallet-section .kol-wallet-details .kol-currency {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 13px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.user-details .user-content-wrapper .balance-detail .wallet-detail-footer{
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer {
   display: flex;
   flex-direction: column;
 }
 
-.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point span{
-  color: #60F6FF;
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .point span {
+  color: #60f6ff;
 }
 
-.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .earn{
-  font-family: 'Trinos';
+.user-details .user-content-wrapper .balance-detail .wallet-detail-footer .earn {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.prev-vote-section{
+.prev-vote-section {
   margin-top: 20px;
 }
 
-.prev-vote-section .title{
-  font-family: 'Trinos';
+.prev-vote-section .title {
+  font-family: "Trinos";
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 44px;
   margin-bottom: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.prev-vote-section .prev-projects{
+.prev-vote-section .prev-projects {
   display: flex;
   flex-direction: column;
+}
+
+/***************Responsiveness****************/
+@media (max-width: 1272px) {
+  .action-btns {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .hamburger-menu .dropdown-toggle::after {
+    display: none;
+  }
+
+  .hamburger-menu .dropdown-menu {
+    background-color: transparent !important;
+    /* width: 100% !important; */
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1090px) {
+  .landing-detail-wrapper .detail .key {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+
+  .landing-detail-wrapper .detail .value {
+    font-size: 18px;
+  }
+  .landing-detail-wrapper img {
+    position: relative;
+    top: 30px;
+    width: 250px;
+  }
+  .timeline-section .timeline-detail .durations span {
+    font-size: 20px;
+  }
+
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 18px;
+  }
+
+  .timeline-section .line-group {
+    left: 170px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 180px;
+  }
+}
+
+@media (max-width: 848px) {
+  .timeline-section .timeline-detail .durations span {
+    font-size: 18px;
+  }
+
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 16px;
+  }
+
+  .timeline-section .line-group {
+    left: 140px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 150px;
+  }
+
+  .landing .title {
+    font-size: 40px;
+  }
+
+  .landing-detail .title {
+    font-size: 38px;
+  }
+
+  .app-section .title {
+    font-size: 30px;
+  }
+
+  .app-section .app-card img {
+    width: 250px;
+  }
+
+  .app-section .app-card .detail .header-title {
+    font-size: 18px;
+  }
+
+  .app-section .app-card .detail .stores img {
+    width: 135px;
+  }
+}
+
+@media (max-width: 738px) {
+  .icons-section span {
+    display: none;
+  }
+  .landing-detail-wrapper .detail .key {
+    font-size: 25px;
+  }
+  .landing-detail-wrapper .detail .value {
+    font-size: 15px;
+  }
+  .landing-detail-wrapper img {
+    width: 200px;
+  }
+  .timeline-section .title {
+    font-size: 30px;
+  }
+
+  .timeline-section .timeline-detail .durations span {
+    font-size: 15px;
+  }
+
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 14px;
+  }
+  .timeline-section .line-group {
+    left: 90px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 120px;
+  }
+
+  .landing-footer .footer-icons a,
+  footer .super-ultra span,
+  .landing-footer .footer-links a {
+    font-size: 15px;
+  }
+
+  footer .super-ultra img {
+    width: 70px;
+  }
+
+  .landing-footer .footer-icons a,
+  footer .super-ultra img {
+    position: relative;
+    top: 10px;
+  }
+}
+
+@media (max-width: 586px) {
+  .landing-detail-wrapper .detail .key {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .landing-detail-wrapper .detail .value {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .landing-detail-wrapper img {
+    width: 150px;
+  }
+
+  .timeline-section .timeline-detail .timeline-steps .step {
+    font-size: 12px;
+  }
+
+  .timeline-section .line-group-2 {
+    right: 90px;
+  }
+  .timeline-section .line-group {
+    left: 70px;
+  }
+  .app-section .title,
+  .timeline-section .title {
+    font-size: 25px;
+  }
+
+  .landing-detail .title {
+    font-size: 32px;
+  }
+  .landing .title {
+    font-size: 35px;
+  }
 }

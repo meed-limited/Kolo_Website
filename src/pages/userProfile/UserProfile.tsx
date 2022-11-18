@@ -1,80 +1,79 @@
-import React from 'react';
+import React from "react";
 
 // import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useAccount } from "wagmi";
 
 import { Project } from "../../../types";
 import { useUserData } from "../../context/UserContextProvider";
 import { PROJECTS } from "../../utils/data";
-import Frame from '../components/Frame';
-import PrevListBox from '../components/PrevListBox';
-
+import Frame from "../components/Frame";
+import PrevListBox from "../components/PrevListBox";
 
 const UserProfile = () => {
-    const navigate = useNavigate()
-    const { address } = useAccount();
-    const { tokenBalance } = useUserData();
+  const navigate = useNavigate();
+  const { address } = useAccount();
+  const { tokenBalance } = useUserData();
 
   return (
     <Frame title="Profile">
-        <div className="product-detail">
-            <div className="goBack" onClick={() => navigate(-1)}>
-                {"<<<"}
+      <div className="product-detail">
+        <div className="goBack" onClick={() => navigate(-1)}>
+          {"<<<"}
+        </div>
+        <div className="content">
+          <div className="header-wrapper">
+            <div className="header">
+              <div className="title">User Profile</div>
             </div>
-            <div className="content">
-                <div className="header-wrapper">
-                    <div className="header">
-                        <div className="title">User Profile</div>
-                    </div>
+          </div>
+          <div className="user-details">
+            <div className="user-content-wrapper">
+              <img src="assets/images/userbtn.svg" />
+              <div className="user-frame vote-detail">
+                <img src="assets/images/profile-project.png" />
+                <div className="divider"></div>
+                <div className="vote">
+                  <img src="assets/images/vote-icon.png" />
+                  <div className="vote-content">
+                    <div className="period">1/11/-7/11 period</div>
+                    <div className="vote-prefix">You Have Voted</div>
+                    <div className="project-name">PJ Name</div>
+                  </div>
                 </div>
-                <div className='user-details'>
-                    <div className='user-content-wrapper'>
-                        <img src="assets/images/userbtn.svg" />
-                        <div className='user-frame vote-detail'>
-                            <img src='assets/images/profile-project.png' />
-                            <div className='divider'></div>
-                            <div className='vote'>
-                                <img src="assets/images/vote-icon.png" />
-                                <div className='vote-content'>
-                                    <div className="period">1/11/-7/11 period</div>
-                                    <div className="vote-prefix">You Have Voted</div>
-                                    <div className="project-name">PJ Name</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='user-content-wrapper'>
-                        <div className="balance">Balance</div>
-                        <div className='user-frame balance-detail'>
-                            <div className="connected-wallet-section">
-                                <div className='icon'>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        style={{ marginRight: "5px" }}
-                                        width="16"
-                                        height="16"
-                                        fill="white"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z" />
-                                    </svg>
-                                </div>
-                                <div className="details-wrapper">
-                                    <div className="title">Connected Wallet</div>
-                                    <div className="address">{address}</div>
-                                </div>
-                            </div>
-                            <div className="kol-wallet-section">
-                                <div className="icon">
-                                    <img src='assets/images/Kol.png' />
-                                </div>
-                                <div className='kol-wallet-details'>
-                                    <div className="balance">{tokenBalance ? tokenBalance : "0000"}</div>
-                                    <div className="kol-currency">KOL</div>
-                                </div>
-                            </div>
-                            {/* <div className="wallet-divider">
+              </div>
+            </div>
+            <div className="user-content-wrapper">
+              <div className="balance">Balance</div>
+              <div className="user-frame balance-detail">
+                <div className="connected-wallet-section">
+                  <div className="icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ marginRight: "5px" }}
+                      width="16"
+                      height="16"
+                      fill="white"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z" />
+                    </svg>
+                  </div>
+                  <div className="details-wrapper">
+                    <div className="title">Connected Wallet</div>
+                    <div className="address">{address}</div>
+                  </div>
+                </div>
+                <div className="kol-wallet-section">
+                  <div className="icon">
+                    <img src="assets/images/Kol.png" />
+                  </div>
+                  <div className="kol-wallet-details">
+                    <div className="balance">{tokenBalance ? tokenBalance : "0000"}</div>
+                    <div className="kol-currency">KOL</div>
+                  </div>
+                </div>
+                {/* <div className="wallet-divider">
                                 <Button variant="secondary"> 
                                     <svg 
                                         width="24" 
@@ -90,31 +89,33 @@ const UserProfile = () => {
                                     <span>Show on BscScan</span>
                                 </Button>
                             </div> */}
-                            <div className="diver"></div>
-                            <div className='wallet-detail-footer'>
-                                <div className="point"><span>00/10</span> point</div>
-                                <div className="earn">to earn next Kol </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="diver"></div>
+                <div className="wallet-detail-footer">
+                  <div className="point">
+                    <span>00/10</span> point
+                  </div>
+                  <div className="earn">to earn next Kol </div>
                 </div>
-                <div className="prev-vote-section">
-                    <div className="title">Previously Voted</div>
-                    <div className="prev-projects">
-                    {PROJECTS.Projects.map((data: Project) => (
-                        <PrevListBox
-                            imagePath={data.image}
-                            title={data.title}
-                            objective={data.objective}
-                            backer={data.backers}
-                        />
-                    ))}
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div className="prev-vote-section">
+            <div className="title">Previously Voted</div>
+            <div className="prev-projects">
+              {PROJECTS.Projects.map((data: Project) => (
+                <PrevListBox
+                  imagePath={data.image}
+                  title={data.title}
+                  objective={data.objective}
+                  backer={data.backers}
+                />
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
     </Frame>
-  )
-}
+  );
+};
 
-export default UserProfile
+export default UserProfile;

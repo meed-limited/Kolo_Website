@@ -31,8 +31,13 @@ const PrevListBox: React.FC<PrevListBoxProps> = ({ imagePath, title, objective, 
         </div>
       </div>
       <div className="expiry-container">
-        <div className="time"><span className="iconify" data-icon="fluent:timer-32-regular"></span>{" "} Ended on 01/11/22</div>
-        <div className="update"><span>more Update</span> <br />{">>>"}</div>
+        <div className="time">
+          <span className="iconify" data-icon="fluent:timer-32-regular"></span> Ended on 01/11/22
+        </div>
+        <div className="update">
+          <span>more Update</span> <br />
+          {">>>"}
+        </div>
       </div>
     </div>
   );

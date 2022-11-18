@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, ButtonGroup } from "react-bootstrap";
+import { Button, ButtonGroup, Dropdown } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAccount } from "wagmi";
 
@@ -86,6 +86,24 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
             <ConnectAccount />
           </div>
         )}
+        <div className="hamburger-menu">
+          <Dropdown>
+            <Dropdown.Toggle variant="link">
+              <img src="assets/images/hamburger.svg" />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              {/* <Dropdown.Item> */}
+              <Button variant="primary">Download KOLO app</Button>
+              {/* </Dropdown.Item> */}
+              {/* <Dropdown.Item> */}
+              <Button variant="primary" onClick={goToApp} className="mt-2">
+                Launch web-app
+              </Button>
+              {/* </Dropdown.Item> */}
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </header>
       {!isLanding && (
         <span className="vote-btns">
