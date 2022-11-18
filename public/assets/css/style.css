@@ -416,9 +416,6 @@ footer .super-ultra img {
   margin-left: 33px;
 }
 
-.app-section .app-card .detail .stores .others img {
-  /* margin-bottom: 30px; */
-}
 /* Project Listing */
 .project-wrapper {
   margin-top: 10px;
@@ -1139,10 +1136,6 @@ footer .super-ultra img {
   justify-content: space-between;
 }
 
-.user-details .user-content-wrapper {
-  /* margin-right: 100px; */
-}
-
 .user-details .user-content-wrapper .balance {
   font-family: "Trinos";
   font-style: normal;
@@ -1633,11 +1626,5 @@ footer .super-ultra img {
 
   footer .super-ultra span {
     margin-right: 10px;
-  }
-
-  .landing-footer .footer-icons a,
-  footer .super-ultra img {
-    /* position: relative;
-    top: 10px; */
   }
 }
