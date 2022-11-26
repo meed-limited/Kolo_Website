@@ -1330,12 +1330,13 @@ footer .super-ultra img {
 }
 
 /***************Responsiveness****************/
+/* Landing Page */
 @media (max-width: 1272px) {
   .action-btns {
     display: none;
   }
 
-  .hamburger-menu {
+  .landing-bg .hamburger-menu {
     display: block;
   }
 
@@ -1344,9 +1345,12 @@ footer .super-ultra img {
   }
 
   .hamburger-menu .dropdown-menu {
-    background-color: transparent !important;
+    /* background-color: transparent !important; */
     /* width: 100% !important; */
     padding: 20px;
+  }
+  .landing-bg .hamburger-menu .dropdown-menu {
+    background: linear-gradient(185.34deg, #60f6ff 4.92%, #488de5 99.68%) !important;
   }
 }
 
@@ -1553,6 +1557,10 @@ footer .super-ultra img {
 }
 
 @media (max-width: 425px) {
+  header {
+    padding: 10px 20px;
+  }
+
   .landing {
     margin-top: 40px;
   }
@@ -1620,11 +1628,76 @@ footer .super-ultra img {
     margin-right: 10px;
   }
 
+  footer {
+    padding: 0 10px;
+  }
+
   footer .super-ultra img {
     width: 40px;
   }
 
   footer .super-ultra span {
     margin-right: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .timeline-section .line-group {
+    left: 20px;
+  }
+  .timeline-section .line-group-2 {
+    right: 32px;
+  }
+  footer {
+    padding: 0 5px;
+  }
+
+  footer .super-ultra img {
+    width: 25px;
+  }
+
+  .landing-footer .footer-icons a {
+    margin-right: 5px;
+  }
+
+  footer .super-ultra span {
+    margin-right: 10px;
+  }
+  .landing-footer .footer-links a {
+    margin-right: 5px;
+  }
+}
+
+/* Project List */
+@media (max-width: 1204px) {
+  .project-wrapper .title-section .title,
+  .list-box .content .title {
+    font-size: 37px !important;
+  }
+  .project-wrapper .title-section .project-time .countdown {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1096px) {
+  .project-wrapper .title-section .title,
+  .list-box .content .title {
+    font-size: 30px !important;
+  }
+  .project-wrapper .title-section .project-time .countdown {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 980px) {
+  .bg .hamburger-menu {
+    display: block;
+  }
+  .bg .hamburger-menu .dropdown-menu {
+    background: linear-gradient(185.34deg, #000b55 4.92%, #8dafff 99.68%) !important;
+  }
+  header .btn-group-section,
+  header .nav-btn {
+    display: none;
   }
 }

@@ -93,14 +93,20 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {/* <Dropdown.Item> */}
-              <Button variant="primary">Download KOLO app</Button>
-              {/* </Dropdown.Item> */}
-              {/* <Dropdown.Item> */}
-              <Button variant="primary" onClick={goToApp} className="mt-2">
-                Launch web-app
-              </Button>
-              {/* </Dropdown.Item> */}
+              {isLanding ? (
+                <>
+                  <Button variant="primary">Download KOLO app</Button>
+                  <Button variant="primary" onClick={goToApp} className="mt-2">
+                    Launch web-app
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <ChainSelector />
+                  <Balance />
+                  <ConnectAccount />
+                </>
+              )}
             </Dropdown.Menu>
           </Dropdown>
         </div>
