@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
   };
 
   return (
-    <>
+    <div>
       <header>
         <div className="icons-section">
           {isLanding ? (
@@ -112,16 +112,39 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
         </div>
       </header>
       {!isLanding && (
-        <span className="vote-btns">
-          <div className="btns">
-            <Button variant="info" className="border-right">
-              Submission Phase
-            </Button>
-            <Button variant="info">Voting phase</Button>
+        <div className="bg-btn-wrapper">
+          <span className="vote-btns">
+            <div className="btns">
+              <Button variant="info" className="border-right">
+                Submission Phase
+              </Button>
+              <Button variant="info">Voting phase</Button>
+            </div>
+          </span>
+          <div className="btn-group-section bgs-mobile">
+            <ButtonGroup>
+              <span>
+                <Button
+                  variant="link"
+                  className={location.pathname === "/project-list" ? "active" : ""}
+                  onClick={goToApp}
+                >
+                  Project
+                </Button>
+                <span className="iconify" data-icon="fluent:divider-short-20-regular"></span>
+                <Button
+                  variant="link"
+                  className={location.pathname === "/submission-form" ? "active" : ""}
+                  onClick={goToSubmissionForm}
+                >
+                  Submit Project
+                </Button>
+              </span>
+            </ButtonGroup>
           </div>
-        </span>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

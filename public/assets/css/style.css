@@ -73,6 +73,10 @@ header {
   display: none;
 }
 
+.bgs-mobile {
+  display: none;
+}
+
 .icons-section span {
   font-family: "Open Sans";
   font-style: normal;
@@ -1699,5 +1703,14 @@ footer .super-ultra img {
   header .btn-group-section,
   header .nav-btn {
     display: none;
+  }
+  .bg-btn-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .bgs-mobile {
+    display: block;
+    margin-left: 80px;
   }
 }
