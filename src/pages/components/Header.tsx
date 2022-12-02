@@ -81,8 +81,12 @@ const Header: React.FC<HeaderProps> = ({ isLanding }: HeaderProps) => {
         )}
         {!isLanding && (
           <div className="nav-btn">
-            <ChainSelector />
-            <Balance />
+            {isConnected && (
+              <>
+                <ChainSelector />
+                <Balance />
+              </>
+            )}
             <ConnectAccount />
           </div>
         )}
