@@ -102,12 +102,13 @@ const UserProfile = () => {
           <div className="prev-vote-section">
             <div className="title">Previously Voted</div>
             <div className="prev-projects">
-              {PROJECTS.Projects.map((data: Project) => (
+              {PROJECTS.Projects.map((data: Project, index) => (
                 <PrevListBox
                   imagePath={data.image}
                   title={data.title}
                   objective={data.objective}
                   backer={data.backers}
+                  key={index}
                 />
               ))}
             </div>
