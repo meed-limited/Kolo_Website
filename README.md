@@ -73,6 +73,14 @@ As KOLO aims to democratize opportunities, any entrepreneurial projects such as 
 
 - [KOLO WebApp](https://kolo.superultra.io/)
 
+## Deployment
+
+- run: `yarn buil`
+- install the firebase CLI tools: `yarn add firebase-tools` or `npm install -g firebase-tools`
+- login to firebase: `firebase login`
+- launch local server: `firebase emulators:start`
+- deploy to firebase: `firebase deploy`
+
 ## Features:
 
 - [x] Game integrated
